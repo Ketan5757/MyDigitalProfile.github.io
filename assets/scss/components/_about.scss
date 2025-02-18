@@ -1,0 +1,52 @@
+/*=============== ABOUT ===============*/
+.about{
+   &__page{
+      padding-bottom: 4rem;
+   }
+   &__perfil{
+      justify-self: center;
+   }
+   &__content{
+      row-gap: 4rem;
+   }
+   &__data{
+      row-gap: 2rem;
+   }
+   &__info{
+      row-gap: .75rem;
+      text-align: center;
+   }
+   &__name{
+      font-size: var(--h1-font-size);
+   }
+   &__profession{
+      font-size: var(--h2-font-size);
+   }
+   &__description b{
+      color: var(--first-color);
+   }
+   &__button{
+      justify-self: center;
+   }
+   &__skills{
+      &-title{
+         font-size: var(--h3-font-size);
+         text-align: center;
+         margin-bottom: 2rem;
+      }
+      &-img{
+         width: 35px;
+         transition: transform .4s;
+
+         &:hover{
+            transform: translateY(-.5rem);
+         }
+      }
+      &-content{
+         grid-template-columns: repeat(5, max-content);
+         justify-content: center;
+         align-items: center;
+         gap: 2rem 1.5rem;
+      }
+   }
+}

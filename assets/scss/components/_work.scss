@@ -1,0 +1,38 @@
+/*=============== WORK ===============*/
+.work{
+   &__container{
+      row-gap: 2rem;
+   }
+   &__link{
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1rem;
+   }
+   &__img{
+      filter: grayscale(1);
+      transition: filter .5s, transform .5s;
+   }
+   &__icon{
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      font-size: 2rem;
+      color: var(--first-color);
+      transition: transform .4s;
+   }
+   &__link:hover &__img{
+      transform: scale(1.1);
+      filter: none;
+   }
+   &__link:hover &__icon{
+      transform: translate(.5rem, -.5rem) rotate(-30deg);
+   }
+   &__title{
+      font-size: var(--h2-font-size);
+      margin-bottom: .25rem;
+   }
+   &__page{
+      padding-bottom: 4rem;
+   }
+}

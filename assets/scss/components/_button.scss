@@ -1,0 +1,15 @@
+/*=============== BUTTON ===============*/
+.button{
+   display: inline-flex;
+   justify-content: center;
+   background-color: var(--first-color);
+   color: var(--white-color);
+   font-weight: var(--font-semi-bold);
+   padding: 1rem 2rem;
+   transition: background-color .4s, box-shadow .4s;
+
+   &:hover{
+      background-color: var(--first-color-alt);
+      box-shadow: 0 8px 24px hsla(var(--hue), 90%, 30%, .3);
+   }
+}

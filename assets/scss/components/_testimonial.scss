@@ -1,0 +1,50 @@
+/*=============== TESTIMONIAL ===============*/
+.testimonial{
+   &__container{
+      position: relative;
+   }
+   &__swiper{
+      padding-bottom: 2rem;
+   }
+   &__card{
+      background-color: var(--container-color);
+      padding: 2rem 1.25rem 2.5rem 1.25rem;
+      border-inline: 8px solid var(--first-color);
+      box-shadow: 0 12px 24px var(--shadow-color);
+      text-align: center;
+      transition: background-color .4s; /* for dark mode */
+   }
+   &__border{
+      width: 100px;
+      height: 100px;
+      border: 6px solid var(--first-color);
+      overflow: hidden;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+   }
+   &__img{
+      filter: grayscale(1);
+      transition: filter .4s;
+   }
+   &__name{
+      font-size: var(--h2-font-size);
+      margin-bottom: .5rem;
+   }
+   &__card:hover &__img{
+      filter: none;
+   }
+}
+
+/* Swiper class */
+.swiper{
+   &-pagination-bullets.swiper-pagination-horizontal{
+      bottom: -1rem;
+   }
+   &-pagination-bullet{
+      background-color: var(--first-color-light);
+      opacity: 1;
+   }
+   &-pagination-bullet-active{
+      background-color: var(--first-color);
+   }
+}

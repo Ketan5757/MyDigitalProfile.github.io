@@ -1,0 +1,52 @@
+/*=============== THEME ===============*/
+.nav__actions{
+	display: flex;
+	align-items: center;
+	column-gap: 1rem;
+}
+
+.change-theme{
+	color: var(--white-color);
+	font-size: 1.25rem;
+	cursor: pointer;
+	transition: color .4s;
+}
+
+/*========== Variables Dark theme ==========*/
+body.dark-theme{
+   --title-color: hsl(var(--hue), 24%, 85%);
+   --text-color: hsl(var(--hue), 8%, 70%);
+   --body-color: hsl(var(--hue), 16%, 8%);
+   --container-color: hsl(var(--hue), 16%, 12%);
+   --shadow-color: hsla(var(--hue), 32%, 4%, .4);
+}
+
+/*========== 
+	Color changes in some parts of 
+	the website, in dark theme
+==========*/
+.dark-theme{
+	& .bg-header{
+		box-shadow: 0 12px 24px var(--shadow-color);
+	}
+
+	& .button:hover{
+		box-shadow: 0 8px 24px hsla(var(--hue), 90%, 50%, .3);
+	}
+
+	& .services__modal{
+		background-color: hsla(var(--hue), 90%, 8%, .2);
+	}
+
+	&::-webkit-scrollbar{
+		background-color: hsl(var(--hue), 16%, 15%);
+		
+		&-thumb{
+			background-color: hsl(var(--hue), 16%, 25%);
+			 
+			&:hover{
+				background-color: hsl(var(--hue), 16%, 35%);
+			}
+		}
+	}
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== FAVICON ===============-->
+      <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+      <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="assets/css/styles.css">
+
+      <title>Contact - Responsive portfolio website - Bedimcode</title>
+   </head>
+   <body>
+      <!--==================== HEADER ====================-->
+      <header class="header header-pages" id="header">
+         <nav class="nav container">
+            <a href="index.html" class="nav__logo">Liz</a>
+
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <li class="nav__item">
+                     <a href="index.html" class="nav__link">Home</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="about.html" class="nav__link">About Me</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="work.html" class="nav__link">Portfolio</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="contact.html" class="button">Contact Me</a>
+                  </li>
+               </ul>
+
+               <!-- Close button -->
+               <div class="nav__close" id="nav-close">
+                  <i class="ri-close-line"></i>
+               </div>
+            </div>
+
+            <div class="nav__actions">
+               <!-- Theme button -->
+               <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+               <!-- Toggle button -->
+               <div class="nav__toggle" id="nav-toggle">
+                  <i class="ri-apps-2-line"></i>
+               </div>
+            </div>
+         </nav>
+      </header>
+
+      <!--==================== MAIN ====================-->
+      <main class="main">
+         <!--==================== CONTACT ====================-->
+         <section class="contact section">
+            <h2 class="section__title">
+               Let's Talk <br>
+               About Your Project               
+            </h2>
+
+            <div class="contact__page container grid">
+               <form action="" class="contact__form grid" id="contact-form">
+                  <div class="contact__group grid">
+                     <div class="contact__box">
+                        <input type="text" name="user_name" id="name" required placeholder="Write your names" class="contact__input">
+                        <label for="name" class="contact__label">First Name</label>
+                     </div>
+
+                     <div class="contact__box">
+                        <input type="email" name="user_email" id="email" required placeholder="Write your email" class="contact__input">
+                        <label for="email" class="contact__label">Email Address</label>
+                     </div>
+                  </div>
+
+                  <div class="contact__box contact__area">
+                     <textarea name="user_message" id="message" required placeholder="Write your message" class="contact__input"></textarea>
+                     <label for="message" class="contact__label">Message</label>
+                  </div>
+
+                  <p class="contact__message" id="contact-message"></p>
+
+                  <button type="submit" class="contact__send button">Send Message</button>
+               </form>
+            </div>
+         </section>
+      </main>
+
+      <!--==================== FOOTER ====================-->
+      <footer class="footer">
+         <div class="footer__container container grid">
+            <div class="footer__content grid">
+               <a href="index.html" class="footer__logo">Liz</a>
+
+               <ul class="footer__links">
+                  <li>
+                     <a href="about.html" class="footer__link">About Me</a>
+                  </li>
+
+                  <li>
+                     <a href="work.html" class="footer__link">Portfolio</a>
+                  </li>
+
+                  <li>
+                     <a href="contact.html" class="footer__link">Contact Me</a>
+                  </li>
+               </ul>
+
+               <div class="footer__social">
+                  <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                     <i class="ri-facebook-circle-fill"></i>
+                  </a>
+
+                  <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+                     <i class="ri-instagram-fill"></i>
+                  </a>
+
+                  <a href="https://twitter.com/" target="_blank" class="footer__social-link">
+                     <i class="ri-twitter-x-line"></i>
+                  </a>
+
+                  <a href="https://www.linkedin.com/" target="_blank" class="footer__social-link">
+                     <i class="ri-linkedin-box-fill"></i>
+                  </a>
+               </div>
+            </div>
+
+            <span class="footer__copy">
+               &#169; All Rights Reserved By Bedimcode
+            </span>
+         </div>
+      </footer>
+
+      <!--=============== MAIN JS ===============-->
+      <script src="assets/js/main.js"></script>
+      
+      <!--=============== EMAIL JS ===============-->
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+      
+      <!--=============== CONTACT JS ===============-->
+      <script src="assets/js/contact.js"></script>
+   </body>
+</html>

@@ -1,0 +1,65 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root{
+   --header-height: 3.5rem;
+
+   /*========== Colors ==========*/
+   /*Color mode HSL(hue, saturation, lightness)*/
+      /* 
+      Change favorite color
+      Default: hsl(255, 90%, 60%)
+      Orange: hsl(14, 90%, 60%) - Blue: hsl(210, 90%, 50%)
+      Pink: hsl(356, 100%, 65%) - Green: hsl(162, 90%, 40%)
+
+      For more colors visit: https://colors.dopely.top/color-pedia
+      -> Choose any color 
+      -> Click on tab (Color Conversion)
+      -> Copy the color mode (HSL)
+  */
+   --hue: 255;
+   --first-color: hsl(var(--hue), 90%, 60%);
+   --first-color-alt: hsl(var(--hue), 82%, 56%);
+   --first-color-light: hsl(var(--hue), 40%, 80%);
+   --title-color: hsl(var(--hue), 24%, 16%);
+   --text-color: hsl(var(--hue), 8%, 45%);
+   --text-color-light: hsl(var(--hue), 8%, 60%);
+   --white-color: hsl(0, 0%, 100%);
+   --body-color: hsl(0, 0%, 100%);
+   --container-color: hsl(0, 0%, 100%);
+   --shadow-color: hsla(var(--hue), 90%, 30%, .1);
+
+   /*========== Font and typography ==========*/
+   /*.5rem = 8px | 1rem = 16px ...*/
+   --body-font: 'Syne', sans-serif;
+
+   --biggest-font-size: 2rem;
+   --h1-font-size: 1.5rem;
+   --h2-font-size: 1.25rem;
+   --h3-font-size: 1rem;
+   --normal-font-size: .938rem;
+   --small-font-size: .813rem;
+   --smaller-font-size: .75rem;
+
+   // Responsive typography
+   @media screen and (min-width: 1150px){
+      --biggest-font-size: 4.5rem;
+      --h1-font-size: 2.25rem;
+      --h2-font-size: 1.5rem;
+      --h3-font-size: 1.25rem;
+      --normal-font-size: 1.125rem;
+      --small-font-size: .875rem;
+      --smaller-font-size: .813rem;
+   }
+
+	/*========== Font weight ==========*/
+   --font-regular: 400;
+   --font-medium: 500;
+   --font-semi-bold: 600;
+
+	/*========== z index ==========*/
+   --z-tooltip: 10;
+   --z-fixed: 100;
+   --z-modal: 1000;
+}

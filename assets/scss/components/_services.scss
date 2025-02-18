@@ -1,0 +1,89 @@
+/*=============== SERVICES ===============*/
+.services{
+   &__container{
+      row-gap: 2rem;
+   }
+   &__card{
+      background-color: var(--container-color);
+      padding: 3.5rem 1.5rem;
+      box-shadow: 0 12px 24px var(--shadow-color);
+      text-align: center;
+      transition: background-color .4s;
+   }
+   &__icon{
+      display: inline-block;
+      font-size: 3rem;
+      color: var(--first-color);
+      margin-bottom: 1.5rem;
+   }
+   &__title{
+      font-size: var(--h2-font-size);
+      margin-bottom: 1rem;
+   }
+   &__description{
+      margin-bottom: 3rem;
+   }
+   &__button{
+      cursor: pointer;
+   }
+   &__modal{
+      position: fixed;
+      inset: 0;
+      background-color: hsla(var(--hue), 90%, 20%, .3);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px); // For safari
+      display: grid;
+      place-items: center;
+      padding: 2rem 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      z-index: var(--z-modal);
+      transition: opacity .4s, visibility .4s;
+
+      &-content{
+         max-height: 420px;
+         position: relative;
+         background-color: var(--container-color);
+         padding: 3.5rem 1.5rem;
+         border-bottom: 6px solid var(--first-color);
+         overflow: auto;
+
+         &::-webkit-scrollbar{
+            width: .6rem;
+
+            &-thumb{
+               background-color: var(--text-color-light);
+            }
+         }
+      }
+      &-title{
+         font-size: var(--h2-font-size);
+         margin-bottom: 2.5rem;
+      }
+      &-list{
+         margin-left: 1rem;
+      }
+      &-item{
+         text-align: initial;
+         list-style: square;
+
+         &::marker{
+            color: var(--first-color);
+         }
+      }
+      &-close{
+         position: absolute;
+         top: 1.5rem;
+         right: 1.5rem;
+         font-size: 1.5rem;
+         color: var(--first-color);
+         cursor: pointer;
+      }
+   }
+}
+
+/* Active modal */
+.active-modal{
+   opacity: 1;
+   visibility: visible;
+}

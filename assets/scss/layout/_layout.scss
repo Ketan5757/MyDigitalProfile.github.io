@@ -1,0 +1,52 @@
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container{
+   max-width: 1120px;
+   margin-inline: 1.5rem;
+}
+
+.grid{
+   display: grid;
+   gap: 1.5rem;
+}
+
+.section{
+   padding-block: 5rem 1rem;
+
+   &__title{
+      font-size: var(--h1-font-size);
+      text-align: center;
+      margin-bottom: 2rem;
+   }
+}
+
+.perfil{
+   width: 250px;
+   height: 250px;
+   background-color: var(--body-color);
+   border: 8px solid var(--first-color);
+   border-radius: 50%;
+   display: grid;
+   place-items: center;
+   transition: background-color .4s; /* for dark mode */
+
+   &__content{
+      width: 180px;
+      height: 180px;
+      border: 10px solid var(--first-color);
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      background: linear-gradient(180deg,
+                  hsl(var(--hue), 90%, 80%),
+                  hsl(var(--hue), 90%, 30%));
+   }
+   &__img{
+      width: 150px;
+   }
+}
+
+.main{
+   overflow: hidden;
+}
