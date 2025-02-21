@@ -18,27 +18,17 @@
       -> Click on tab (Color Conversion)
       -> Copy the color mode (HSL)
   */
-  --hue: 210; /* Medium Blue hue */
-  
-  /* Main Color */
-  --first-color: hsl(var(--hue), 60%, 50%); /* Darker blue */
-  --first-color-alt: hsl(var(--hue), 60%, 45%); /* Slightly darker blue */
-  --first-color-light: hsl(var(--hue), 60%, 70%); /* Lighter blue (but still darker) */
-  
-  /* Text Colors */
-  --title-color: hsl(var(--hue), 60%, 12%); /* Even darker blue for titles */
-  --text-color: hsl(var(--hue), 60%, 40%); /* Darker greyish blue text */
-  --text-color-light: hsl(var(--hue), 60%, 50%); /* Slightly lighter blue text */
-  
-  /* White Color */
-  --white-color: hsl(0, 0%, 100%); /* White remains the same */
-  
-  /* Body & Background Colors */
-  --body-color: hsl(0, 0%, 95%); /* Light grey background */
-  --container-color: hsl(0, 0%, 100%); /* White for container */
-  
-  /* Shadow */
-  --shadow-color: hsla(var(--hue), 60%, 20%, .1);
+  --hue: 210; /* Blue hue */
+--first-color: hsl(var(--hue), 40%, 45%); /* Darker muted blue */
+--first-color-alt: hsl(var(--hue), 38%, 40%); /* Slightly darker muted blue */
+--first-color-light: hsl(var(--hue), 50%, 70%); /* Lighter muted blue */
+--title-color: hsl(var(--hue), 30%, 15%); /* Very dark muted blue */
+--text-color: hsl(var(--hue), 25%, 35%); /* Darker muted blue text */
+--text-color-light: hsl(var(--hue), 25%, 50%); /* Lighter muted blue text */
+--white-color: hsl(0, 0%, 100%); /* White */
+--body-color: hsl(0, 0%, 95%); /* Light grey background */
+--container-color: hsl(0, 0%, 100%); /* White for container */
+--shadow-color: hsla(var(--hue), 40%, 30%, 0.1);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
