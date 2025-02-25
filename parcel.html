@@ -1,22 +1,91 @@
-<!-- parcel.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parcel Service App</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #4F729D;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            max-width: 50%; /* Adjusting the image size */
+            height: auto;
+            border-radius: 10px;
+        }
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #4F729D;
+            color: white;
+            border-radius: 0 0 10px 10px;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Parcel Service App</h1>
+        Parcel Service App
     </header>
-    <main>
-        <img src="assets/img/parcel.webp" alt="Parcel Service App">
-        <p>A delivery tracking system that enables users to manage shipments efficiently.</p>
-    </main>
+    <div class="container">
+        <div class="image-container">
+            <img src="assets/img/parcel.webp" alt="Parcel Service App">
+        </div>
+        <div class="content">
+            <h2>Project Overview</h2>
+            <p>
+                This delivery tracking system enables users to manage and track shipments efficiently. 
+                It provides real-time tracking, automated notifications, and a seamless user experience.
+            </p>
+            <h2>Features</h2>
+            <ul>
+                <li>Real-time parcel tracking</li>
+                <li>Automated delivery notifications</li>
+                <li>Secure user authentication</li>
+                <li>Intuitive and user-friendly interface</li>
+                <li>Integration with multiple courier services</li>
+            </ul>
+            <a href="https://github.com/Ketan5757/Parcel-Service-Application">Source Code for this Project</a>
+        </div>
+    </div>
     <footer>
         <a href="index.html">Back to Projects</a>
+        
     </footer>
 </body>
 </html>
