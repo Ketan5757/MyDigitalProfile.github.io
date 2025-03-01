@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Chat Application</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,6 +19,7 @@
             padding: 20px;
             text-align: center;
             font-size: 24px;
+            font-weight: bold;
         }
         .container {
             max-width: 900px;
@@ -37,9 +38,24 @@
             height: auto;
             border-radius: 10px;
         }
-        .content p {
+        .content h2 {
+            color: #4F729D;
+        }
+        .content p, .content ul {
             font-size: 18px;
             line-height: 1.6;
+        }
+        .content ul {
+            padding-left: 20px;
+        }
+        .content a {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #4F729D;
+            font-weight: bold;
         }
         footer {
             text-align: center;
@@ -57,9 +73,7 @@
     </style>
 </head>
 <body>
-    <header>
-        AI Chat Application
-    </header>
+    <header>AI Powered Chatbot & Assistance Platform</header>
     <div class="container">
         <div class="image-container">
             <img src="assets/img/chatbot.jpeg" alt="AI Chat Application">
@@ -67,26 +81,41 @@
         <div class="content">
             <h2>Project Overview</h2>
             <p>
-                This AI-powered chat application enables users to interact with a virtual assistant 
-                that provides automated responses and intelligent assistance. The system utilizes 
-                natural language processing (NLP) and machine learning algorithms to understand 
-                user queries and deliver relevant answers.
+                I have developed an AI Chat Application that enables users to have real-time conversations 
+                with an AI-powered virtual assistant. This chatbot utilizes Natural Language Processing (NLP), 
+                Machine Learning algorithms, and API integrations to provide accurate and interactive responses.
             </p>
-            <h2>Features</h2>
+            <p>
+                Additionally, the chatbot includes live weather updates by integrating with the OpenWeather API, 
+                allowing users to get real-time weather information based on their location.
+            </p>
+
+            <h2>Key Features</h2>
             <ul>
-                <li>Real-time AI-based chat functionality</li>
-                <li>Natural Language Processing (NLP) capabilities</li>
-                <li>Interactive and user-friendly interface</li>
-                <li>Customizable chatbot responses</li>
-                <li>Seamless integration with various platforms</li>
+                <li>Real-time AI chat functionality with intelligent responses</li>
+                <li>Natural Language Processing (NLP) for accurate understanding</li>
+                <li>Live weather updates using OpenWeather API</li>
+                <li>Code assistance and debugging support</li>
+                <li>AI-powered image analysis</li>
+                <li>Secure user authentication with Clerk.js</li>
+                <li>Seamless integration with external APIs</li>
             </ul>
-            <a href="https://github.com/Ketan5757/SmartTalk-AI-Chatbot">Source Code for this Project</a>
+
+            <h2>Technologies Used</h2>
+            <ul>
+                <li><strong>Frontend:</strong> React.js, Tailwind CSS</li>
+                <li><strong>Backend:</strong> Node.js, Express.js</li>
+                <li><strong>AI/NLP:</strong> Google Gemini API</li>
+                <li><strong>Weather API:</strong> OpenWeather API</li>
+                <li><strong>Authentication:</strong> Clerk.js</li>
+                <li><strong>Database:</strong> MongoDB Atlas (real-time chat storage)</li>
+            </ul>
+
+            <a href="https://github.com/Ketan5757/SmartTalk-AI-Chatbot" target="_blank">🔗 View Source Code on GitHub</a>
         </div>
     </div>
     <footer>
-        <a href="index.html">Back to Projects</a>
-        
+        <a href="index.html">⬅ Back to Projects</a>
     </footer>
 </body>
 </html>
-
