@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce Website</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <title>E-Commerce Web Application</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,6 +19,7 @@
             padding: 20px;
             text-align: center;
             font-size: 24px;
+            font-weight: bold;
         }
         .container {
             max-width: 900px;
@@ -33,13 +34,28 @@
             margin-bottom: 20px;
         }
         .image-container img {
-            max-width: 50%; /* Adjusting the image size */
+            max-width: 50%;
             height: auto;
             border-radius: 10px;
         }
-        .content p {
+        .content h2 {
+            color: #4F729D;
+        }
+        .content p, .content ul {
             font-size: 18px;
             line-height: 1.6;
+        }
+        .content ul {
+            padding-left: 20px;
+        }
+        .content a {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #4F729D;
+            font-weight: bold;
         }
         footer {
             text-align: center;
@@ -53,39 +69,50 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
-            display: block;
-            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <header>
-        Ecommerce Website
-    </header>
+    <header>E-Commerce Web Application</header>
     <div class="container">
         <div class="image-container">
-            <img src="assets/img/eCommerce.jpg" alt="Ecommerce Website">
+            <img src="assets/img/eCommerce.jpg" alt="E-Commerce Web Application">
         </div>
         <div class="content">
             <h2>Project Overview</h2>
             <p>
-                This is a full-featured ecommerce platform that provides users with seamless online shopping experiences. 
-                The platform supports user authentication, payment integration, and a responsive user interface.
+                I have developed a full-featured e-commerce web application that provides users with a seamless online shopping experience. 
+                This platform supports user authentication, secure payment processing, product management, and a fully responsive UI.
             </p>
-            <h2>Features</h2>
+            <p>
+                The system includes a secure payment gateway using Stripe, MongoDB Atlas for database management, and an admin dashboard for easy product management. 
+                Users can browse, filter, and purchase products efficiently with a smooth and interactive interface.
+            </p>
+
+            <h2>Key Features</h2>
             <ul>
-                <li>User authentication and account management</li>
-                <li>Secure payment gateway integration</li>
-                <li>Responsive and mobile-friendly design</li>
-                <li>Product search and filtering options</li>
-                <li>Admin dashboard for product management</li>
+                <li>Secure user authentication & account management</li>
+                <li>Stripe payment gateway integration for seamless transactions</li>
+                <li>Responsive and mobile-friendly UI for a better user experience</li>
+                <li>Product search, filtering, and category-based browsing</li>
+                <li>Admin dashboard for adding, updating, and managing products</li>
+                <li>Real-time **order tracking & user-friendly checkout process</li>
             </ul>
-            <a href="https://github.com/Ketan5757/Ecommerce-web-application">Source Code for this Project</a>
+
+            <h2>Technologies Used</h2>
+            <ul>
+                <li><strong>Frontend:</strong> React.js, Tailwind CSS</li>
+                <li><strong>Backend:</strong> Node.js, Express.js</li>
+                <li><strong>Database:</strong> MongoDB Atlas (NoSQL, cloud-hosted)</li>
+                <li><strong>Authentication:</strong> Firebase Auth</li>
+                <li><strong>Payment Gateway:</strong> Stripe API</li>
+            </ul>
+
+            <a href="https://github.com/Ketan5757/Ecommerce-web-application" target="_blank">🔗 View Source Code on GitHub</a>
         </div>
     </div>
     <footer>
-        <a href="index.html">Back to Projects</a>
-        
+        <a href="index.html">⬅ Back to Projects</a>
     </footer>
 </body>
 </html>
