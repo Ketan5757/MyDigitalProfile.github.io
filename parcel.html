@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parcel Service App</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <title>Parcel Service Application</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,6 +19,7 @@
             padding: 20px;
             text-align: center;
             font-size: 24px;
+            font-weight: bold;
         }
         .container {
             max-width: 900px;
@@ -33,13 +34,28 @@
             margin-bottom: 20px;
         }
         .image-container img {
-            max-width: 50%; /* Adjusting the image size */
+            max-width: 50%; /* Adjusted size to match AI Chat Application */
             height: auto;
             border-radius: 10px;
         }
-        .content p {
+        .content h2 {
+            color: #4F729D;
+        }
+        .content p, .content ul {
             font-size: 18px;
             line-height: 1.6;
+        }
+        .content ul {
+            padding-left: 20px;
+        }
+        .content a {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #4F729D;
+            font-weight: bold;
         }
         footer {
             text-align: center;
@@ -53,39 +69,45 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
-            display: block;
-            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <header>
-        Parcel Service App
-    </header>
+    <header>Parcel Service Application</header>
     <div class="container">
         <div class="image-container">
-            <img src="assets/img/parcel.webp" alt="Parcel Service App">
+            <img src="assets/img/parcel.webp" alt="Parcel Service Application">
         </div>
         <div class="content">
             <h2>Project Overview</h2>
             <p>
-                This delivery tracking system enables users to manage and track shipments efficiently. 
-                It provides real-time tracking, automated notifications, and a seamless user experience.
+                I have developed a Parcel Service Application that enables users to manage and track shipments efficiently.
+                It provides real-time tracking, automated notifications, and seamless user interaction.
             </p>
-            <h2>Features</h2>
+            
+            <h2>Key Features</h2>
             <ul>
                 <li>Real-time parcel tracking</li>
                 <li>Automated delivery notifications</li>
-                <li>Secure user authentication</li>
+                <li>Secure user authentication with Clerk.js</li>
                 <li>Intuitive and user-friendly interface</li>
                 <li>Integration with multiple courier services</li>
             </ul>
-            <a href="https://github.com/Ketan5757/Parcel-Service-Application">Source Code for this Project</a>
+
+            <h2>Technologies Used</h2>
+            <ul>
+                <li><strong>Frontend:</strong> React.js, Tailwind CSS</li>
+                <li><strong>Backend:</strong> Node.js, Express.js</li>
+                <li><strong>Authentication:</strong> Clerk.js</li>
+                <li><strong>Database:</strong> MongoDB Atlas</li>
+                <li><strong>API Integrations:</strong> Courier APIs for real-time tracking</li>
+            </ul>
+
+            <a href="https://github.com/Ketan5757/Parcel-Service-Application" target="_blank">🔗 View Source Code on GitHub</a>
         </div>
     </div>
     <footer>
-        <a href="index.html">Back to Projects</a>
-        
+        <a href="index.html">⬅ Back to Projects</a>
     </footer>
 </body>
 </html>
