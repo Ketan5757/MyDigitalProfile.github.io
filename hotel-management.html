@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Management System</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,6 +19,7 @@
             padding: 20px;
             text-align: center;
             font-size: 24px;
+            font-weight: bold;
         }
         .container {
             max-width: 900px;
@@ -33,13 +34,28 @@
             margin-bottom: 20px;
         }
         .image-container img {
-            max-width: 50%; /* Ensuring the image size is consistent */
+            width: 50%; /* Matches AI Chat App and E-Commerce Web App */
             height: auto;
             border-radius: 10px;
         }
-        .content p {
+        .content h2 {
+            color: #4F729D;
+        }
+        .content p, .content ul {
             font-size: 18px;
             line-height: 1.6;
+        }
+        .content ul {
+            padding-left: 20px;
+        }
+        .content a {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #4F729D;
+            font-weight: bold;
         }
         footer {
             text-align: center;
@@ -53,15 +69,11 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
-            display: block;
-            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <header>
-        Hotel Management System
-    </header>
+    <header>Hotel Management System</header>
     <div class="container">
         <div class="image-container">
             <img src="assets/img/hotel.jpg" alt="Hotel Management System">
@@ -69,25 +81,39 @@
         <div class="content">
             <h2>Project Overview</h2>
             <p>
-                A web-based platform designed to manage hotel bookings, check-ins, and room availability. 
-                It offers seamless reservation management and enhances customer experience.
+                I have developed a Hotel Management System that efficiently manages room bookings, 
+                customer check-ins, billing, and administrative operations. The system ensures seamless 
+                and automated hotel operations with an interactive interface for both customers and admins.
             </p>
-            <h2>Features</h2>
+            <p>
+                The platform integrates secure payment processing, real-time room availability tracking, 
+                and an admin dashboard that allows hotel staff to manage reservations, update room statuses, 
+                and process customer check-outs easily.
+            </p>
+
+            <h2>Key Features</h2>
             <ul>
-                <li>Online room booking and availability check</li>
-                <li>Automated customer check-in and check-out</li>
-                <li>Secure payment gateway integration</li>
-                <li>Admin dashboard for hotel management</li>
-                <li>User-friendly interface with real-time updates</li>
-                
+                <li>Automated room booking & real-time availability tracking</li>
+                <li>Secure customer check-in and check-out process</li>
+                <li>Integrated billing system with Stripe for secure payments</li>
+                <li>Admin dashboard to manage reservations and customer records</li>
+                <li>Optimized room allocation and guest data management</li>
+                <li>User-friendly interface with real-time database updates</li>
             </ul>
-            <a href="https://github.com/Ketan5757/Hotel-Management-System">Source Code for this Project</a>
+
+            <h2>Technologies Used</h2>
+            <ul>
+                <li><strong>Frontend:</strong> Java Swing</li>
+                <li><strong>Backend:</strong> Java, JDBC</li>
+                <li><strong>Database:</strong> MySQL (Relational Database for room & customer management)</li>
+                <li><strong>Payment Integration:</strong> Stripe API</li>
+            </ul>
+
+            <a href="https://github.com/Ketan5757/Hotel-Management-System" target="_blank">🔗 View Source Code on GitHub</a>
         </div>
     </div>
     <footer>
-        <a href="index.html">Back to Projects</a>
-        
+        <a href="index.html">⬅ Back to Projects</a>
     </footer>
 </body>
 </html>
-

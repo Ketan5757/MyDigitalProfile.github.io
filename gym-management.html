@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gym Management System</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,6 +19,7 @@
             padding: 20px;
             text-align: center;
             font-size: 24px;
+            font-weight: bold;
         }
         .container {
             max-width: 900px;
@@ -33,13 +34,28 @@
             margin-bottom: 20px;
         }
         .image-container img {
-            max-width: 50%; /* Ensuring the image size is consistent */
+            width: 50%; /* Matches AI Chat App, E-Commerce, and Hotel Management pages */
             height: auto;
             border-radius: 10px;
         }
-        .content p {
+        .content h2 {
+            color: #4F729D;
+        }
+        .content p, .content ul {
             font-size: 18px;
             line-height: 1.6;
+        }
+        .content ul {
+            padding-left: 20px;
+        }
+        .content a {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #4F729D;
+            font-weight: bold;
         }
         footer {
             text-align: center;
@@ -53,15 +69,11 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
-            display: block;
-            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <header>
-        Gym Management System
-    </header>
+    <header>Gym Management System</header>
     <div class="container">
         <div class="image-container">
             <img src="assets/img/gym.jpg" alt="Gym Management System">
@@ -69,22 +81,37 @@
         <div class="content">
             <h2>Project Overview</h2>
             <p>
-                A comprehensive system to manage gym memberships, trainer schedules, and workout plans. 
-                It simplifies member management and enhances the overall gym experience.
+                I have developed a Gym Management System using PHP and MySQL, designed to automate gym operations 
+                such as membership management, trainer scheduling, and workout plans. The system enhances the user experience 
+                by providing a real-time dashboard for gym administrators.
             </p>
-            <h2>Features</h2>
+            <p>
+                The platform integrates automated billing, attendance tracking, and member subscriptions to simplify 
+                gym administration and improve customer engagement and retention.
+            </p>
+
+            <h2>Key Features</h2>
             <ul>
-                <li>Membership registration and management</li>
-                <li>Trainer scheduling and workout plans</li>
-                <li>Automated billing and payment integration</li>
-                <li>Real-time attendance tracking</li>
-                <li>User-friendly dashboard for gym administrators</li>
+                <li>Membership registration & management with payment tracking</li>
+                <li>Trainer scheduling system to manage sessions & workout plans</li>
+                <li>Automated billing with Stripe for secure online payments</li>
+                <li>Real-time attendance tracking for members</li>
+                <li>Admin dashboard for managing gym members, trainers, and payments</li>
             </ul>
+
+            <h2>Technologies Used</h2>
+            <ul>
+                <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+                <li><strong>Backend:</strong> PHP</li>
+                <li><strong>Database:</strong> MySQL (Relational Database for gym management)</li>
+                <li><strong>Authentication:</strong> Firebase</li>
+            </ul>
+
+            <a href="https://github.com/Ketan5757/Gym-Management-System" target="_blank">🔗 View Source Code on GitHub</a>
         </div>
     </div>
     <footer>
-        <a href="index.html">Back to Projects</a>
-        
+        <a href="index.html">⬅ Back to Projects</a>
     </footer>
 </body>
 </html>
