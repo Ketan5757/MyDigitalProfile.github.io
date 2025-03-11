@@ -4,8 +4,6 @@
 
 This is my personal portfolio website, where I showcase my skills, projects, and journey as a developer. Here, you can explore different sections highlighting my expertise and achievements in the tech world.
 
-💡 This portfolio was created as part of my course, serving as a reflection of my learning and growth in technology. It demonstrates my technical proficiency, creativity, and dedication to continuous improvement.
-
 ## 🌍 Website Overview
 - **Home:** A warm welcome to my digital space with an introduction to my work.
 - **About:** Learn more about me, my skills, and my passion for development.
