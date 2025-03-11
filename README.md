@@ -18,7 +18,7 @@ This is my personal portfolio website, where I showcase my skills, projects, and
 
 ## 🛠️ Technologies Used
 - HTML, CSS, JavaScript
-- React.js (if applicable)
+- React.js 
 
 
 ## 📬 Connect with Me
