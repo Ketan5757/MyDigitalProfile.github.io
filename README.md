@@ -18,7 +18,9 @@ This is my personal portfolio website, where I showcase my skills, projects, and
 
 ## 🛠️ Technologies Used
 - HTML, CSS, JavaScript
-- React.js 
+
+## 🌐 View My Digital Profile
+- Check out my portfolio website live: https://ketan5757.github.io/MyDigitalProfile.github.io/
 
 
 ## 📬 Connect with Me
