@@ -1,123 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chat Application</title>
-    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
-    
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background: #4F729D;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .image-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .content h2 {
-            color: #4F729D;
-        }
-        .content p, .content ul {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        .content ul {
-            padding-left: 20px;
-        }
-        .content a {
-            display: block;
-            text-align: center;
-            font-size: 18px;
-            margin-top: 15px;
-            text-decoration: none;
-            color: #4F729D;
-            font-weight: bold;
-        }
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            background: #4F729D;
-            color: white;
-            border-radius: 0 0 10px 10px;
-        }
-        footer a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chat Application</title>
+  <link rel="stylesheet" href="styles.css" /> <!-- External CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #4F729D;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .image-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .content h2 {
+      color: #4F729D;
+      margin-top: 20px;
+    }
+    .content p, .content ul {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .content ul {
+      padding-left: 20px;
+    }
+    .content a {
+      display: block;
+      text-align: center;
+      font-size: 18px;
+      margin-top: 15px;
+      text-decoration: none;
+      color: #4F729D;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px;
+      background: #4F729D;
+      color: white;
+      border-radius: 0 0 10px 10px;
+    }
+    footer a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <header>AI Powered Chatbot & Assistance Platform</header>
-    <div class="container">
-        <div class="image-container">
-            <img src="assets/img/chatbot.jpeg" alt="AI Chat Application">
-        </div>
-        <div class="content">
-            <h2>Project Overview</h2>
-            <p>
-                I have developed an AI Chat Application that enables users to have real-time conversations with an AI-powered virtual assistant.
-                This chatbot utilizes Large Language Models (LLMs), and seamless API integrations to provide accurate, interactive, and 
-                contextually relevant responses, offering an enhanced and engaging user experience.
-            </p>
-            <p>
-                Additionally, the chatbot provides live weather updates by integrating with the OpenWeather API, allowing users to get real-time weather information based on their location.
-                It also pulls latest news data using the News API, providing users with up-to-date news from various sources. 
-                Users can conveniently request both weather and news information in a single prompt, offering a seamless and efficient experience.
-            </p>
-
-            <h2>Key Features</h2>
-            <ul>
-                <li>Real-time AI chat functionality with intelligent responses</li>
-                <li>Natural Language Processing (NLP) for accurate understanding</li>
-                <li>Live weather updates using OpenWeather API</li>
-                <li>Code assistance and debugging support</li>
-                <li>AI-powered image analysis</li>
-                <li>Secure user authentication with Clerk.js</li>
-                <li>Seamless integration with external APIs</li>
-            </ul>
-
-            <h2>Technologies Used</h2>
-            <ul>
-                <li><strong>Frontend:</strong> React.js, Tailwind CSS</li>
-                <li><strong>Backend:</strong> Node.js, Express.js</li>
-                <li><strong>AI/NLP:</strong> Google Gemini API</li>
-                <li><strong>Weather API:</strong> OpenWeather API</li>
-                <li><strong>Authentication:</strong> Clerk.js</li>
-                <li><strong>Database:</strong> MongoDB Atlas (real-time chat storage)</li>
-            </ul>
-
-            <a href="https://github.com/Ketan5757/SmartTalk-AI-Chatbot" target="_blank">🔗 View Source Code on GitHub</a>
-        </div>
+  <header>AI Powered Chatbot & Assistance Platform</header>
+  <div class="container">
+    <div class="image-container">
+      <img src="assets/img/chatbot.jpeg" alt="AI Chat Application" />
     </div>
-    <footer>
-        <a href="index.html">⬅ Back to Projects</a>
-    </footer>
+    <div class="content">
+      <h2>Project Overview</h2>
+      <p>
+        I have developed an AI Chat Application that enables users to have real-time conversations with an AI-powered virtual assistant.
+        This chatbot utilizes Large Language Models (LLMs) and seamless API integrations to provide accurate, interactive, and 
+        contextually relevant responses, offering an enhanced and engaging user experience.
+      </p>
+      <p>
+        Additionally, the chatbot provides live weather updates by integrating with the OpenWeather API, allowing users to receive 
+        real-time weather information based on their location. It also pulls the latest news data using the News API, providing up-to-date 
+        news from various sources. Users can conveniently request both weather and news information in a single prompt, ensuring a seamless and efficient experience.
+      </p>
+
+      <h2>Key Features</h2>
+      <ul>
+        <li>Real-time AI chat functionality with intelligent responses</li>
+        <li>Natural Language Processing (NLP) for accurate understanding</li>
+        <li>Live weather updates using OpenWeather API</li>
+        <li>Code assistance and debugging support</li>
+        <li>AI-powered image analysis</li>
+        <li>Secure user authentication with Clerk.js</li>
+        <li>Seamless integration with external APIs</li>
+      </ul>
+
+      <h2>Technologies Used</h2>
+      <ul>
+        <li><strong>Frontend:</strong> React.js, Tailwind CSS</li>
+        <li><strong>Backend:</strong> Node.js, Express.js</li>
+        <li><strong>AI/NLP:</strong> Google Gemini API</li>
+        <li><strong>Weather API:</strong> OpenWeather API</li>
+        <li><strong>Authentication:</strong> Clerk.js</li>
+        <li><strong>Database:</strong> MongoDB Atlas (real-time chat storage)</li>
+      </ul>
+
+      <!-- New Section: Project Documentation -->
+      <h2>Project Documentation</h2>
+      <p>
+        For a detailed understanding of the project implementation and outcomes, please review the documentation provided below:
+      </p>
+      <p style="text-align: center; font-size: 18px; margin-top: 15px;">
+        <a href="assets/docs/presentation.pptx" target="_blank">Download Project Presentation (PPT)</a>
+        <a href="assets/pdf/Darekar-Ketan-RES.report-2025.pdf" target="_blank">Download Project Report</a>
+      </p>
+      <a href="https://github.com/Ketan5757/SmartTalk-AI-Chatbot" target="_blank">🔗 View Source Code on GitHub</a>
+    </div>
+  </div>
+  <footer>
+    <a href="index.html">⬅ Back to Projects</a>
+  </footer>
 </body>
 </html>
