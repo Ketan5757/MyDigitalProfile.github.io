@@ -1,484 +1,1700 @@
 <!DOCTYPE html>
-   <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <!--=============== FAVICON ===============-->
-      <link rel="shortcut icon" href="assets/img/K.webp" type="image/x-icon">
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-      <!--=============== REMIXICONS ===============-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+  <!-- Animate.css for smooth fade‐in animations -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 
-      <!--=============== SWIPER CSS ===============-->
-      <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+  <title>Ketan Darekar — UI/UX & Full-Stack Designer</title>
 
-      <!--=============== CSS ===============-->
-      <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    :root {
+      /* Refined Professional Palette */
+      --clr-primary: #0a3d62;        /* deep navy */
+      --clr-secondary: #22a6b3;      /* teal */
+      --clr-accent: #f9ca24;         /* gold */
+      --clr-bg: #f8f9fa;             /* light gray */
+      --clr-light: #ffffff;
+      --clr-dark: #2f3640;           /* charcoal */
+      --clr-muted: #636e72;          /* slate gray */
+      --clr-soft: #dfe6e9;           /* pale gray */
+      --font-primary: 'Inter', sans-serif;
+      --font-secondary: 'Poppins', sans-serif;
+      --transition-fast: 0.25s ease;
+    }
 
-      <title>Responsive portfolio website - Ketan Darekar</title>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    html {
+      scroll-behavior: smooth;
+    }
 
+    body {
+      font-family: var(--font-primary);
+      background-color: var(--clr-bg);
+      color: var(--clr-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
+    ul {
+      list-style: none;
+    }
 
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
 
+    .container {
+      width: min(100% - 2rem, 1200px);
+      margin-inline: auto;
+      padding: 0 1rem;
+    }
 
-   </head>
-   <body>
-      <!--==================== HEADER ====================-->
-      <header class="header" id="header">
-         <nav class="nav container">
-            <a href="index.html" class="nav__logo">Ketan Darekar</a>
+    .section {
+      padding: 5rem 0;
+    }
 
-            <div class="nav__menu" id="nav-menu">
-               <ul class="nav__list">
-                  <li class="nav__item">
-                     <a href="index.html" class="nav__link">Home</a>
-                  </li>
+    .section__title {
+      font-family: var(--font-secondary);
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--clr-dark);
+      text-align: center;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
 
-                  <li class="nav__item">
-                     <a href="about.html" class="nav__link">About Me</a>
-                  </li>
+    .section__title::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background-color: var(--clr-secondary);
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
 
-                  <li class="nav__item">
-                     <a href="work.html" class="nav__link">Portfolio</a>
-                  </li>
+    .section__subtitle {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--clr-muted);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
 
-                  <li class="nav__item">
-                     <a href="contact.html" class="button">Contact Me</a>
-                  </li>
-               </ul>
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
 
-               <!-- Close button -->
-               <div class="nav__close" id="nav-close">
-                  <i class="ri-close-line"></i>
-               </div>
-            </div>
+    /* HEADER & NAV */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--clr-light);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      transition: background-color var(--transition-fast);
+    }
 
-               <!-- Toggle button -->
-               <div class="nav__toggle" id="nav-toggle">
-                  <i class="ri-apps-2-line"></i>
-               </div>
-            </div>
-         </nav>
-      </header>
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.5rem;
+    }
 
-      <!--==================== MAIN ====================-->
-      <main class="main">
-         <!--==================== HOME ====================-->
-         <section class="home section">
-            <div class="home__rectangle"></div>
+    .nav__logo {
+      font-family: var(--font-secondary);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--clr-primary);
+      transition: color var(--transition-fast);
+    }
 
-            <div class="home__container container grid">
-               <div class="home__perfil perfil">
-                  <div class="perfil__content">
-                     <!-- Insert your profile image ( square ratio 300 x 300, 600 x 600... ) -->
-                     <img src="assets/img/myphoto1.jpg" alt="image" class="perfil__img">
-                  </div>
-               </div>
+    .nav__menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
 
-               <div class="home__content grid">
-                  <div class="home__data grid">
-                     <h1 class="home__name">Ketan Darekar</h1>
-   
-                     <h2 class="home__profession">Full-Stack Developer</h2>
-   
-                     <!-- Insert your social links ( change icons at https://remixicon.com/ ) -->
-                     <div class="home__social">
-                        <a href="https://github.com/Ketan5757" target="_blank" class="home__social-link">
-                           <i class="ri-github-fill"></i>
-                        </a>
-   
-                        <a href="https://www.linkedin.com/in/ketan-darekar-6ba32a1b4/" target="_blank" class="home__social-link">
-                           <i class="ri-linkedin-box-fill"></i>
-                        </a>
-   
-                        <a href="https://dribbble.com/" target="_blank" class="home__social-link">
-                           <i class="ri-dribbble-line"></i>
-                        </a>
-                     </div>
-                  </div>
+    .nav__list {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
 
-                  <!-- Insert your CV -->
-                  <a href="assets/pdf/Ketan_Darekar_CV.pdf" download="" class="home__button button">Download CV</a>
-               </div>
-            </div>
-         </section>
+    .nav__item {
+      position: relative;
+    }
 
+    .nav__link {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--clr-dark);
+      position: relative;
+      padding: 0.25rem 0;
+      transition: color var(--transition-fast);
+    }
 
- <!--==================== EDUCATION ====================-->
-<section class="education section">
-   <h2 class="section__title">
-      My <br> Education   
-   </h2>
+    .nav__link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background-color: var(--clr-primary);
+      transition: width var(--transition-fast);
+      border-radius: 1px;
+    }
 
-   <div class="education__container container grid">
-      <div class="education__content">
-         <div class="education__item">
-            <i class="ri-graduation-cap-fill education__icon"></i>
-            <div>
-               <h3 class="education__degree">Masters in Applied Computer Science</h3>
-               <span class="education__institution">SRH Hochschule Heidelberg</span>
-               <span class="education__year">2023 - Present</span>
-               
-               <!-- Added Skills -->
-               <div class="education__skills">
-                  <h4>Skills Acquired:</h4>
-                  <ul>
-                     <li>Artificial Intelligence</li>
-                     <li>Javascript Frameworks</li>
-                     <li>Advanced Programming (Python, Java)</li>
-                     <li>SAP Technologies(ABAP, HANA)</li>
-                     <li>Software Development</li>
-                     <li>Database Management</li>
-                     <li>Google Cloud</li>
-                     
-                  </ul>
-               </div>
-            </div>
-         </div>
+    .nav__link:hover::after,
+    .nav__link.active::after {
+      width: 100%;
+    }
 
-         <div class="education__item">
-            <i class="ri-book-open-fill education__icon"></i>
-            <div>
-               <h3 class="education__degree">Bachelors of Computer Applications</h3>
-               <span class="education__institution">MIT ACSC</span>
-               <span class="education__year">2019 - 2022</span>
-               
-               <!-- Added Skills -->
-               <div class="education__skills">
-                  <h4>Skills Acquired:</h4>
-                  <ul>
-                     <li>Web Development (HTML, CSS, JavaScript)</li>
-                     <li>Database Management</li>
-                     <li>Basic Programming (C++, Java)</li>
-                     <li>Problem Solving</li>
-                     <li>Software Engineering</li>
-               </div>
-            </div>
-         </div>
+    .nav__link:hover {
+      color: var(--clr-primary);
+    }
+
+    .nav__link.button {
+      background-color: var(--clr-secondary);
+      color: var(--clr-light);
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav__link.button:hover {
+      background-color: var(--clr-accent);
+      transform: translateY(-2px);
+    }
+
+    .nav__toggle,
+    .nav__close {
+      display: none;
+      background: none;
+      font-size: 1.5rem;
+      color: var(--clr-primary);
+      transition: color var(--transition-fast);
+    }
+
+    .nav__toggle:hover,
+    .nav__close:hover {
+      color: var(--clr-secondary);
+    }
+
+    /* Responsive Nav */
+    @media (max-width: 768px) {
+      .nav__toggle {
+        display: block;
+      }
+      .nav__menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 260px;
+        height: 100vh;
+        background-color: var(--clr-light);
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+        gap: 1.5rem;
+        transition: right var(--transition-fast);
+      }
+      .nav__menu.active {
+        right: 0;
+      }
+      .nav__close {
+        display: block;
+        align-self: flex-end;
+      }
+      .nav__list {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+
+    /* ===================== HOME (Hero) SECTION (Lighter) ===================== */
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  margin-top: 4.5rem; /* offset for fixed header */
+  overflow: hidden;
+
+  /* Lighter two-tone gradient (light navy → pale teal) */
+  background: linear-gradient(
+    135deg,
+    rgba(26, 62, 102, 0.9) 0%,    /* a lighter navy-blue */
+    rgba(72, 181, 200, 0.9) 100%  /* a softer teal */
+  );
+  color: var(--clr-light);
+}
+
+/* Noise overlay (same as before) */
+.noise-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Animated blob shape behind content — lighten its gold slightly */
+.blob {
+  position: absolute;
+  top: -150px;
+  left: -100px;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(
+    circle at center,
+    rgba(249, 202, 36, 0.25) 0%, /* lighter, more translucent gold */
+    transparent 60%
+  );
+  border-radius: 50% 50% 45% 55%;
+  opacity: 0.25;
+  animation: blobMove 10s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes blobMove {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(50px, 50px) scale(1.1);
+  }
+}
+
+/* Subtle geometric overlay rotating (unchanged) */
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  transform: translate(-50%, -50%);
+  animation: rotateOverlay 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotateOverlay {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Hero content wrapper */
+.home__container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  align-items: center;
+  z-index: 1;
+  padding: 2rem 0;
+}
+
+/* Profile Photo (straight) */
+.home__profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__img {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: 6px solid var(--clr-light);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.home__img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Text Content Layout */
+.home__content {
+  text-align: left;
+  padding: 1rem;
+}
+
+/* Animated Headline & Underline */
+.home__name {
+  font-family: var(--font-secondary);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--clr-light);
+  position: relative;
+  display: inline-block;
+}
+
+.home__name::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 4px;
+  background-color: var(--clr-accent);
+  opacity: 0.8;
+  border-radius: 2px;
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: slideIn 1s ease-out 0.5s forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* Profession & Tagline fade-in */
+.home__profession {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 0;
+}
+.home__tagline {
+  font-family: var(--font-secondary);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+}
+
+/* Social Icons & Button */
+.home__social {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+}
+
+.home__social-link {
+  font-size: 1.75rem;
+  color: var(--clr-light);
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.home__social-link:hover {
+  transform: scale(1.1);
+  color: var(--clr-accent);
+}
+
+.home__button {
+  display: inline-block;
+  background-color: var(--clr-accent);
+  color: var(--clr-light);
+  font-weight: 500;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.5rem;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  opacity: 0;
+}
+
+.home__button:hover {
+  background-color: var(--clr-secondary);
+  transform: translateY(-2px);
+}
+
+/* Hook up Animate.css fade-ins (via classes in HTML) */
+.home__profession.animate__animated {
+  animation-delay: 0.8s;
+  animation-fill-mode: both;
+}
+.home__tagline.animate__animated {
+  animation-delay: 1.2s;
+  animation-fill-mode: both;
+}
+.home__social.animate__animated {
+  animation-delay: 1.6s;
+  animation-fill-mode: both;
+}
+.home__button.animate__animated {
+  animation-delay: 2s;
+  animation-fill-mode: both;
+}
+
+    /* EDUCATION SECTION */
+    .education__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      padding-top: 2.5rem;
+    }
+
+    .education__card {
+      background-color: var(--clr-light);
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .education__card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .education__icon {
+      font-size: 2.5rem;
+      color: var(--clr-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .education__degree {
+      font-family: var(--font-secondary);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--clr-dark);
+    }
+
+    .education__institution {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--clr-muted);
+    }
+
+    .education__year {
+      display: inline-block;
+      font-size: 0.9rem;
+      color: var(--clr-primary);
+      margin-left: 0.5rem;
+    }
+
+    .education__skills {
+      margin-top: 1.25rem;
+    }
+
+    .education__skills-title {
+      font-family: var(--font-secondary);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--clr-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .education__skills-list {
+      list-style: disc;
+      padding-left: 1.25rem;
+      color: var(--clr-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* PROJECTS SECTION */
+    .projects__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      padding-top: 2.5rem;
+    }
+
+    .projects__card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      background-color: var(--clr-light);
+    }
+
+    .projects__card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .projects__thumb {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+    }
+
+    .projects__img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition-fast);
+    }
+
+    .projects__thumb:hover .projects__img {
+      transform: scale(1.05);
+    }
+
+    .projects__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(9, 33, 63, 0.4);
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity var(--transition-fast);
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+    }
+
+    .projects__thumb:hover .projects__overlay {
+      opacity: 1;
+    }
+
+    .projects__overlay i {
+      font-size: 2rem;
+      color: var(--clr-light);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    .projects__info {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .projects__title {
+      font-family: var(--font-secondary);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--clr-dark);
+      line-height: 1.4;
+    }
+
+    .projects__subtitle {
+      font-size: 0.9rem;
+      color: var(--clr-muted);
+      font-weight: 400;
+    }
+
+    /* CERTIFICATIONS SECTION */
+    .certifications__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      padding-top: 2.5rem;
+    }
+
+    .certifications__card {
+      background-color: var(--clr-light);
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+      text-align: center;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .certifications__card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .certifications__icon {
+      font-size: 2.5rem;
+      color: var(--clr-accent);
+      margin-bottom: 1rem;
+    }
+
+    .certifications__title {
+      font-family: var(--font-secondary);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: var(--clr-dark);
+    }
+
+    .certifications__description {
+      font-size: 0.95rem;
+      color: var(--clr-muted);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .certifications__button {
+      background-color: var(--clr-secondary);
+      color: var(--clr-light);
+      font-weight: 500;
+      padding: 0.6rem 1.5rem;
+      border-radius: 0.5rem;
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .certifications__button:hover {
+      background-color: var(--clr-primary);
+      transform: translateY(-2px);
+    }
+
+    /* MODAL */
+    .certifications__modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(47, 54, 64, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1rem;
+    }
+
+    .certifications__modal-content {
+      background: var(--clr-light);
+      border-radius: 1rem;
+      max-width: 500px;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    .certifications__modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      font-size: 1.25rem;
+      color: var(--clr-muted);
+      cursor: pointer;
+      transition: color var(--transition-fast);
+    }
+
+    .certifications__modal-close:hover {
+      color: var(--clr-dark);
+    }
+
+    .certifications__modal-title {
+      font-family: var(--font-secondary);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--clr-secondary);
+    }
+
+    .certifications__modal-list {
+      list-style: disc;
+      padding-left: 1.5rem;
+      color: var(--clr-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .certifications__download {
+      display: inline-block;
+      background-color: var(--clr-accent);
+      color: var(--clr-light);
+      font-weight: 500;
+      padding: 0.6rem 1.5rem;
+      border-radius: 0.5rem;
+      transition: background-color var(--transition-fast);
+    }
+
+    .certifications__download:hover {
+      background-color: var(--clr-secondary);
+    }
+
+    /* LANGUAGES SECTION */
+    .languages__container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-top: 2.5rem;
+    }
+
+    .languages__cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .languages__card {
+      background-color: var(--clr-light);
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      padding: 1.75rem;
+      text-align: center;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .languages__card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .languages__border {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--clr-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color var(--transition-fast);
+    }
+
+    .languages__card:hover .languages__border {
+      border-color: var(--clr-secondary);
+    }
+
+    .languages__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .languages__name {
+      font-family: var(--font-secondary);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--clr-dark);
+    }
+
+    .languages__level {
+      font-size: 0.9rem;
+      color: var(--clr-muted);
+      line-height: 1.5;
+    }
+
+    /* CONTACT SECTION */
+    .contact__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 3rem;
+      padding-top: 2.5rem;
+    }
+
+    .contact__information {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact__title {
+      font-family: var(--font-secondary);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--clr-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact__text {
+      font-size: 1rem;
+      color: var(--clr-muted);
+      margin-bottom: 1rem;
+    }
+
+    .contact__details {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--clr-dark);
+    }
+
+    .contact__details li {
+      display: flex;
+      align-items: center;
+    }
+
+    .contact__icon {
+      margin-right: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--clr-primary);
+      transition: color var(--transition-fast);
+    }
+
+    .contact__details li:hover .contact__icon {
+      color: var(--clr-secondary);
+    }
+
+    .contact__form {
+      background-color: var(--clr-light);
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+    }
+
+    .contact__form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.25rem;
+    }
+
+    .contact__label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--clr-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact__input {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--clr-muted);
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .contact__input:focus {
+      outline: none;
+      border-color: var(--clr-secondary);
+      box-shadow: 0 0 0 3px rgba(34, 166, 179, 0.2);
+    }
+
+    .contact__form-btn {
+      text-align: right;
+    }
+
+    .contact__form-btn .button {
+      background-color: var(--clr-secondary);
+      color: var(--clr-light);
+      font-weight: 500;
+      padding: 0.75rem 1.75rem;
+      border-radius: 0.5rem;
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .contact__form-btn .button:hover {
+      background-color: var(--clr-primary);
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: var(--clr-dark);
+      color: var(--clr-light);
+      padding: 3rem 0;
+      margin-top: 3rem;
+    }
+
+    .footer__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer__logo {
+      font-family: var(--font-secondary);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--clr-light);
+    }
+
+    .footer__links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer__link {
+      font-size: 1rem;
+      color: var(--clr-light);
+      position: relative;
+      transition: color var(--transition-fast);
+    }
+
+    .footer__link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background-color: var(--clr-secondary);
+      transition: width var(--transition-fast);
+      border-radius: 1px;
+    }
+
+    .footer__link:hover {
+      color: var(--clr-secondary);
+    }
+
+    .footer__link:hover::after {
+      width: 100%;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer__social-link {
+      font-size: 1.5rem;
+      color: var(--clr-light);
+      transition: transform var(--transition-fast), color var(--transition-fast);
+    }
+
+    .footer__social-link:hover {
+      transform: scale(1.1);
+      color: var(--clr-secondary);
+    }
+
+    .footer__copy {
+      font-size: 0.9rem;
+      color: var(--clr-muted);
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!--==================== HEADER ====================-->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Ketan Darekar</a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Open menu">
+        <i class="ri-menu-line"></i>
+      </button>
+      <div class="nav__menu" id="nav-menu">
+        <button class="nav__close" id="nav-close" aria-label="Close menu">
+          <i class="ri-close-line"></i>
+        </button>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link active">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="about.html" class="nav__link">About Me</a>
+          </li>
+          <li class="nav__item">
+            <a href="work.html" class="nav__link">Portfolio</a>
+          </li>
+          <li class="nav__item">
+            <a href="contact.html" class="nav__link button">Contact Me</a>
+          </li>
+        </ul>
       </div>
-   </div>
-</section>
+    </nav>
+  </header>
 
+  <!--==================== MAIN ====================-->
+  <main class="main">
+    <!--==================== HERO (Updated) ====================-->
+    <section class="home section" id="home">
+      <!-- Noise Overlay -->
+      <div class="noise-overlay"></div>
+      <!-- Animated Blob -->
+      <div class="blob"></div>
 
-         <!--==================== Projects ====================-->
-<section class="work section">
-   <h2 class="section__title">
-       My Most <br>
-       Recent Projects              
-   </h2>
+      <div class="home__container container">
+        <!-- Profile Photo (straight) -->
+        <div class="home__profile">
+          <img
+            src="assets/img/myphoto1.jpg"
+            alt="Photo of Ketan Darekar"
+            class="home__img"
+            width="300"
+            height="300"
+          />
+        </div>
 
-   <div class="work__container container grid">
-       <article class="work__card">
-           <a href="ai-chat.html" target="_blank" class="work__link">
-               <img src="assets/img/chatbot.jpeg" alt="AI Chat Application" class="work__img">
-               <i class="ri-arrow-right-circle-line work__icon"></i>
-           </a>
-           <h2 class="work__title">AI Powered Chatbot & <br>Assistance Platform</h2>
-           <span class="work__subtitle">Website Design</span>
-       </article>
+        <!-- Textual Content -->
+        <div class="home__content">
+          <h1 class="home__name animate__animated animate__fadeInDown">
+            Ketan Darekar
+          </h1>
+          <p class="home__profession animate__animated animate__fadeIn">
+            UI/UX & Full-Stack Designer
+          </p>
+          <p
+            class="home__tagline animate__animated animate__fadeIn animate__delay-1s"
+          >
+            Crafting delightful, pixel-perfect experiences.
+          </p>
+          <div
+            class="home__social animate__animated animate__fadeIn animate__delay-2s"
+          >
+            <a
+              href="https://github.com/Ketan5757"
+              target="_blank"
+              rel="noopener"
+              class="home__social-link"
+              aria-label="GitHub"
+            >
+              <i class="ri-github-fill"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ketan-darekar-6ba32a1b4/"
+              target="_blank"
+              rel="noopener"
+              class="home__social-link"
+              aria-label="LinkedIn"
+            >
+              <i class="ri-linkedin-box-fill"></i>
+            </a>
+            <a
+              href="https://dribbble.com/"
+              target="_blank"
+              rel="noopener"
+              class="home__social-link"
+              aria-label="Dribbble"
+            >
+              <i class="ri-dribbble-line"></i>
+            </a>
+          </div>
+          <a
+            href="assets/pdf/Ketan_Darekar_CV.pdf"
+            download
+            class="home__button button animate__animated animate__fadeInUp animate__delay-3s"
+            aria-label="Download CV"
+            >Download CV</a
+          >
+        </div>
+      </div>
+    </section>
 
-       <article class="work__card">
-           <a href="ecommerce.html" target="_blank" class="work__link">
-               <img src="assets/img/eCommerce.jpg" alt="Ecommerce Website" class="work__img">
-               <i class="ri-arrow-right-circle-line work__icon"></i>
-           </a>
-           <h2 class="work__title">Ecommerce Website</h2>
-           <span class="work__subtitle">Website Design</span>
-       </article>
-
-       <article class="work__card">
-           <a href="parcel.html" target="_blank" class="work__link">
-               <img src="assets/img/parcel.webp" alt="Parcel Service App" class="work__img">
-               <i class="ri-arrow-right-circle-line work__icon"></i>
-           </a>
-           <h2 class="work__title">Parcel Service App</h2>
-           <span class="work__subtitle">Website Design</span>
-       </article>
-
-       <article class="work__card">
-           <a href="image-classification.html" target="_blank" class="work__link">
-               <img src="assets/img/catdog.jpeg" alt="Image Classification using AutoML and Custom Training" class="work__img">
-               <i class="ri-arrow-right-circle-line work__icon"></i>
-           </a>
-           <h2 class="work__title">Image Classification using AutoML and Custom Training</h2>
-           <span class="work__subtitle">Google Cloud</span>
-       </article>
-
-       <article class="work__card">
-           <a href="hotel-management.html" target="_blank" class="work__link">
-               <img src="assets/img/hotel.jpg" alt="Hotel Management System" class="work__img">
-               <i class="ri-arrow-right-circle-line work__icon"></i>
-           </a>
-           <h2 class="work__title">Hotel Management System</h2>
-           <span class="work__subtitle">Web Design</span>
-       </article>
-
-       <article class="work__card">
-         <a href="penguin-jump.html" target="_blank" class="work__link">
-             <img src="assets/img/penguinjump.jpg" alt="Penguin Jump - 2D Platformer Game" class="work__img">
-             <i class="ri-arrow-right-circle-line work__icon"></i>
-         </a>
-         <h2 class="work__title">Penguin Jump</h2>
-         <span class="work__subtitle">2D Platformer Game</span>
-     </article>
-     
-
-       <article class="work__card">
-           <a href="gym-management.html" target="_blank" class="work__link">
-               <img src="assets/img/gym.jpg" alt="Gym Management System" class="work__img">
-               <i class="ri-arrow-right-circle-line work__icon"></i>
-           </a>
-           <h2 class="work__title">Gym Management System</h2>
-           <span class="work__subtitle">UI/UX</span>
-       </article>
-   </div>
-</section>
-
-
-
-
-          <!--==================== CERTIFICATIONS ====================-->
-<section class="services section">
-   <h2 class="section__title">Certifications</h2>
-
-   <div class="services__container container grid">
-       <!-- Python Full Stack -->
-       <article class="services__card">
-           <i class="fab fa-python services__icon"></i>
-           <h2 class="services__title">Python Full Stack</h2>
-           <p class="services__description">
-            This intensive 6-month course from CJC Institute equipped me with the skills to build dynamic web pages using Python and its powerful frameworks.
-           </p>
-
-           <button class="services__button button" onclick="openModal('modal-web-dev')">
-               Know More
-           </button>
-
-           <div class="services__modal" id="modal-web-dev">
-               <div class="services__modal-content">
-                   <i class="ri-close-line services__modal-close" onclick="closeModal('modal-web-dev')"></i>
-                   
-                   <h2 class="services__modal-title">CJC Certified</h2>
-                   
-                   <ul class="services__modal-list grid">
-                       <li class="services__modal-item">Mastered Python for Web Development.</li>
-                       <li class="services__modal-item">Developed with Django.</li>
-                       <li class="services__modal-item">Utilized MongoDB for Data Management.</li>
-                       <li class="services__modal-item">Enhanced User Interfaces with JavaScript, HTML, & CSS.</li>
-                   </ul>
-                   <br>
-                   <a href="assets/pdf/python certificate.pdf" download class="services__download button">
-                       Download Certificate
-                   </a>
-               </div>
-           </div>
-       </article>
-
-       <!-- Web Designer Card -->
-       <article class="services__card">
-           <i class="fas fa-cloud services__icon"></i>
-           <h2 class="services__title">Azure Fundamentals</h2>
-           <p class="services__description">
-            The "Azure Fundamentals" course, Microsoft Certified, provided essential knowledge of Azure services and key concepts in cloud computing.
-           </p>
-
-           <button class="services__button button" onclick="openModal('modal-web-des')">
-               Know More
-           </button>
-
-           <div class="services__modal" id="modal-web-des">
-               <div class="services__modal-content">
-                   <i class="ri-close-line services__modal-close" onclick="closeModal('modal-web-des')"></i>
-
-                   <h2 class="services__modal-title">Microsoft Certified</h2>
-
-                   <ul class="services__modal-list grid">
-                       <li class="services__modal-item">Learned Core Azure Concepts.</li>
-                       <li class="services__modal-item">Explored Azure Resource Management.</li>
-                       <li class="services__modal-item">Developed Cloud Security Knowledge.</li>
-                       <li class="services__modal-item">Hands-On Azure Experience.</li>
-                   </ul>
-                   <br>
-
-                   <a href="assets/pdf/Microsoft Azure.pdf" download class="services__download button">
-                       Download Certificate
-                   </a>
-               </div>
-           </div>
-       </article>
-
-       
-        <!-- Web Designer Card -->
-        <article class="services__card">
-         <i class="fas fa-brain services__icon"></i>
-
-         <h2 class="services__title">Machine Learning</h2>
-         <p class="services__description">
-            Completed a 6-week Internshala course on machine learning, covering key algorithms, data preprocessing, model evaluation, and feature engineering.
-         </p>
-
-         <button class="services__button button" onclick="openModal('modal-web-des')">
-             Know More
-         </button>
-
-         <div class="services__modal" id="modal-web-des">
-             <div class="services__modal-content">
-                 <i class="ri-close-line services__modal-close" onclick="closeModal('modal-web-des')"></i>
-
-                 <h2 class="services__modal-title">Internshala Certified</h2>
-
-                 <ul class="services__modal-list grid">
-                     <li class="services__modal-item">Machine Learning Algorithms: Linear regression, decision trees.</li>
-                     <li class="services__modal-item">Data Preprocessing: Cleaning and preparing data.</li>
-                     <li class="services__modal-item">Model Evaluation: Cross-validation and metrics.</li>
-                 </ul>
-                 <br>
-
-                 <a href="assets/pdf/Machine Learning.pdf" download class="services__download button">
-                     Download Certificate
-                 </a>
-             </div>
-         </div>
-     </article>
-   </div>
-</section>
-
-
-<script>
-   function openModal(id) {
-       document.getElementById(id).style.display = 'flex';
-   }
-
-   function closeModal(id) {
-       document.getElementById(id).style.display = 'none';
-   }
-</script>
-
-
-         <!--==================== Languages ====================-->
-         <section class="testimonial section">
-            <h2 class="section__title">
-               My Language Journey <br>    
-            </h2>
-
-            <div class="testimonial__container container">
-               <div class="testimonial__swiper swiper">
-                  <div class="swiper-wrapper">
-                     <article class="testimonial__card swiper-slide">
-                        <div class="testimonial__border">
-                           <img src="assets/img/English.jpeg" alt="image" class="testimonial__img">
-                        </div>
-                        
-                        <h2 class="testimonial__name">English</h2>
-                        <p class="testimonial__description">
-                           My English proficiency is <b>C1 level,</b> allowing me to communicate fluently and professionally. 
-                           I can easily engage in discussions, write formal documents, and understand complex materials.
-                          
-                        </p>
-                     </article>
-
-                     <article class="testimonial__card swiper-slide">
-                        <div class="testimonial__border">
-                           <img src="assets/img/german.png" alt="image" class="testimonial__img">
-                        </div>
-                        
-                        <h2 class="testimonial__name">German</h2>
-                        <p class="testimonial__description">
-                           I speak German at <b>B2 level,</b> meaning I can communicate confidently in conversations, 
-                           express opinions clearly, and engage in discussions on various topics with ease
-                        </p>
-                     </article>
-
-                     <article class="testimonial__card swiper-slide">
-                        <div class="testimonial__border">
-                           <img src="assets/img/Hindi.png" alt="image" class="testimonial__img">
-                        </div>
-                        
-                        <h2 class="testimonial__name">Hindi</h2>
-                        <p class="testimonial__description">
-                           Hindi is my <b>native language,</b> and I am fully proficient in speaking, reading, and writing. 
-                           I can comfortably switch between formal and casual conversations.
-                        </p>
-                     </article>
-
-      
-
-               <!-- Pagination -->
-               <div class="swiper-pagination"></div>
+    <!--==================== EDUCATION ====================-->
+    <section class="education section" id="education">
+      <div class="container">
+        <h2 class="section__title">My Education</h2>
+        <span class="section__subtitle">Academic & Skills Overview</span>
+        <div class="education__container">
+          <!-- Master’s Degree -->
+          <article class="education__card">
+            <i class="ri-graduation-cap-fill education__icon" aria-hidden="true"></i>
+            <h3 class="education__degree">M.Sc. in Applied Computer Science</h3>
+            <p class="education__institution">
+              SRH Hochschule Heidelberg
+              <span class="education__year">2023 – Present</span>
+            </p>
+            <div class="education__skills">
+              <h4 class="education__skills-title">Skills Acquired:</h4>
+              <ul class="education__skills-list">
+                <li>Artificial Intelligence & Machine Learning</li>
+                <li>Modern JavaScript Frameworks (React, Vue)</li>
+                <li>Advanced Programming (Python, Java)</li>
+                <li>SAP Technologies (ABAP, HANA)</li>
+                <li>Software Development Best Practices</li>
+                <li>Database Design & Management (SQL, NoSQL)</li>
+                <li>Google Cloud Platform Services</li>
+              </ul>
             </div>
-         </section>
+          </article>
 
-         <!--==================== CONTACT ====================-->
-         <section class="contact section">
-            <div class="contact__container container grid">
-               <h2 class="section__title">
-                  Get in Touch <br>   
-                  with Me            
-               </h2>
-
-               <a href="contact.html" class="contact__button button">Contact Me</a>
+          <!-- Bachelor’s Degree -->
+          <article class="education__card">
+            <i class="ri-book-open-fill education__icon" aria-hidden="true"></i>
+            <h3 class="education__degree">B.C.A. in Computer Applications</h3>
+            <p class="education__institution">
+              MIT ACSC
+              <span class="education__year">2019 – 2022</span>
+            </p>
+            <div class="education__skills">
+              <h4 class="education__skills-title">Skills Acquired:</h4>
+              <ul class="education__skills-list">
+                <li>Web Development (HTML, CSS, JavaScript)</li>
+                <li>Database Management (MySQL, PostgreSQL)</li>
+                <li>Core Programming (C++, Java)</li>
+                <li>Problem Solving & Algorithm Design</li>
+                <li>Software Engineering Principles</li>
+              </ul>
             </div>
-         </section>
-      </main>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <!--==================== FOOTER ====================-->
-      <footer class="footer">
-         <div class="footer__container container grid">
-            <div class="footer__content grid">
-               <a href="index.html" class="footer__logo">Ketan Darekar</a>
-
-               <ul class="footer__links">
-                  <li>
-                     <a href="about.html" class="footer__link">About Me</a>
-                  </li>
-
-                  <li>
-                     <a href="work.html" class="footer__link">Portfolio</a>
-                  </li>
-
-                  <li>
-                     <a href="contact.html" class="footer__link">Contact Me</a>
-                  </li>
-               </ul>
-
-               <div class="footer__social">
-                  <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
-                     <i class="ri-facebook-circle-fill"></i>
-                  </a>
-
-                  <a href="https://github.com/Ketan5757" target="_blank" class="footer__social-link">
-                     <i class="ri-github-fill"></i>
-                  </a>
-
-                  <a href="https://www.linkedin.com/in/ketan-darekar-6ba32a1b4//" target="_blank" class="footer__social-link">
-                     <i class="ri-linkedin-box-fill"></i>
-                  </a>
-               </div>
+    <!--==================== RECENT PROJECTS ====================-->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <h2 class="section__title">Recent Projects</h2>
+        <span class="section__subtitle">Some work I’m proud of</span>
+        <div class="projects__container">
+          <!-- Project 1 -->
+          <article class="projects__card">
+            <a
+              href="ai-chat.html"
+              target="_blank"
+              rel="noopener"
+              class="projects__thumb"
+            >
+              <img
+                src="assets/img/chatbot.jpeg"
+                alt="AI Chat Application"
+                class="projects__img"
+                width="100%"
+                height="200"
+              />
+              <span class="projects__overlay">
+                <i class="ri-arrow-right-circle-line"></i>
+              </span>
+            </a>
+            <div class="projects__info">
+              <h3 class="projects__title">
+                AI-Powered Chatbot &<br />Assistance Platform
+              </h3>
+              <p class="projects__subtitle">Website Design</p>
             </div>
+          </article>
 
-            <span class="footer__copy">
-               &#169; Made by Ketan
-            </span>
-         </div>
-      </footer>
+          <!-- Project 2 -->
+          <article class="projects__card">
+            <a
+              href="ecommerce.html"
+              target="_blank"
+              rel="noopener"
+              class="projects__thumb"
+            >
+              <img
+                src="assets/img/eCommerce.jpg"
+                alt="E-commerce Website"
+                class="projects__img"
+                width="100%"
+                height="200"
+              />
+              <span class="projects__overlay">
+                <i class="ri-arrow-right-circle-line"></i>
+              </span>
+            </a>
+            <div class="projects__info">
+              <h3 class="projects__title">E-commerce Website</h3>
+              <p class="projects__subtitle">Website Design</p>
+            </div>
+          </article>
 
-      <!--========== SCROLL UP ==========-->
-      <a href="#" class="scrollup" id="scroll-up">
-         <i class="ri-arrow-up-line"></i>
-      </a>
+          <!-- Project 3 -->
+          <article class="projects__card">
+            <a
+              href="parcel.html"
+              target="_blank"
+              rel="noopener"
+              class="projects__thumb"
+            >
+              <img
+                src="assets/img/parcel.webp"
+                alt="Parcel Service App"
+                class="projects__img"
+                width="100%"
+                height="200"
+              />
+              <span class="projects__overlay">
+                <i class="ri-arrow-right-circle-line"></i>
+              </span>
+            </a>
+            <div class="projects__info">
+              <h3 class="projects__title">Parcel Service App</h3>
+              <p class="projects__subtitle">Web Application</p>
+            </div>
+          </article>
 
-      <!--=============== MAIN JS ===============-->
-      <script src="assets/js/main.js"></script>
+          <!-- Project 4 -->
+          <article class="projects__card">
+            <a
+              href="image-classification.html"
+              target="_blank"
+              rel="noopener"
+              class="projects__thumb"
+            >
+              <img
+                src="assets/img/catdog.jpeg"
+                alt="Image Classification Project"
+                class="projects__img"
+                width="100%"
+                height="200"
+              />
+              <span class="projects__overlay">
+                <i class="ri-arrow-right-circle-line"></i>
+              </span>
+            </a>
+            <div class="projects__info">
+              <h3 class="projects__title">
+                Image Classification<br />AutoML & Custom Training
+              </h3>
+              <p class="projects__subtitle">Google Cloud</p>
+            </div>
+          </article>
 
-      <!--=============== SWIPER JS ===============-->
-      <script src="assets/js/swiper-bundle.min.js"></script>
+          <!-- Project 5 -->
+          <article class="projects__card">
+            <a
+              href="hotel-management.html"
+              target="_blank"
+              rel="noopener"
+              class="projects__thumb"
+            >
+              <img
+                src="assets/img/hotel.jpg"
+                alt="Hotel Management System"
+                class="projects__img"
+                width="100%"
+                height="200"
+              />
+              <span class="projects__overlay">
+                <i class="ri-arrow-right-circle-line"></i>
+              </span>
+            </a>
+            <div class="projects__info">
+              <h3 class="projects__title">Hotel Management System</h3>
+              <p class="projects__subtitle">Web Design</p>
+            </div>
+          </article>
 
-      <!--=============== INDEX JS ===============-->
-      <script src="assets/js/index.js"></script>
-   </body>
+          <!-- Project 6 -->
+          <article class="projects__card">
+            <a
+              href="penguin-jump.html"
+              target="_blank"
+              rel="noopener"
+              class="projects__thumb"
+            >
+              <img
+                src="assets/img/penguinjump.jpg"
+                alt="Penguin Jump Game"
+                class="projects__img"
+                width="100%"
+                height="200"
+              />
+              <span class="projects__overlay">
+                <i class="ri-arrow-right-circle-line"></i>
+              </span>
+            </a>
+            <div class="projects__info">
+              <h3 class="projects__title">Penguin Jump</h3>
+              <p class="projects__subtitle">2D Platformer Game</p>
+            </div>
+          </article>
+
+          <!-- Project 7 -->
+          <article class="projects__card">
+            <a
+              href="gym-management.html"
+              target="_blank"
+              rel="noopener"
+              class="projects__thumb"
+            >
+              <img
+                src="assets/img/gym.jpg"
+                alt="Gym Management System"
+                class="projects__img"
+                width="100%"
+                height="200"
+              />
+              <span class="projects__overlay">
+                <i class="ri-arrow-right-circle-line"></i>
+              </span>
+            </a>
+            <div class="projects__info">
+              <h3 class="projects__title">Gym Management System</h3>
+              <p class="projects__subtitle">UI/UX Design</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== CERTIFICATIONS ====================-->
+    <section class="certifications section" id="certifications">
+      <div class="container">
+        <h2 class="section__title">Certifications</h2>
+        <span class="section__subtitle">Verified Credentials</span>
+        <div class="certifications__container">
+          <!-- Python Full Stack -->
+          <article class="certifications__card">
+            <i class="fab fa-python certifications__icon" aria-hidden="true"></i>
+            <h3 class="certifications__title">Python Full Stack</h3>
+            <p class="certifications__description">
+              Intensive 6-month course from CJC Institute — built dynamic web pages using Python & Django.
+            </p>
+            <button
+              class="certifications__button button"
+              onclick="openModal('modal-python')"
+            >
+              Know More
+            </button>
+            <div class="certifications__modal" id="modal-python">
+              <div class="certifications__modal-content">
+                <button
+                  class="certifications__modal-close"
+                  onclick="closeModal('modal-python')"
+                  aria-label="Close modal"
+                >
+                  <i class="ri-close-line"></i>
+                </button>
+                <h3 class="certifications__modal-title">CJC Certified</h3>
+                <ul class="certifications__modal-list">
+                  <li>Mastered Python for Web Development</li>
+                  <li>Developed with Django Framework</li>
+                  <li>Utilized MongoDB for Data Management</li>
+                  <li>Enhanced UIs with JavaScript, HTML & CSS</li>
+                </ul>
+                <a
+                  href="assets/pdf/python certificate.pdf"
+                  download
+                  class="certifications__download button"
+                >
+                  Download Certificate
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Azure Fundamentals -->
+          <article class="certifications__card">
+            <i class="fas fa-cloud certifications__icon" aria-hidden="true"></i>
+            <h3 class="certifications__title">Azure Fundamentals</h3>
+            <p class="certifications__description">
+              “Azure Fundamentals” Microsoft Certified — foundation in Azure services & cloud concepts.
+            </p>
+            <button
+              class="certifications__button button"
+              onclick="openModal('modal-azure')"
+            >
+              Know More
+            </button>
+            <div class="certifications__modal" id="modal-azure">
+              <div class="certifications__modal-content">
+                <button
+                  class="certifications__modal-close"
+                  onclick="closeModal('modal-azure')"
+                  aria-label="Close modal"
+                >
+                  <i class="ri-close-line"></i>
+                </button>
+                <h3 class="certifications__modal-title">Microsoft Certified</h3>
+                <ul class="certifications__modal-list">
+                  <li>Learned Core Azure Concepts</li>
+                  <li>Explored Azure Resource Management</li>
+                  <li>Developed Cloud Security Knowledge</li>
+                  <li>Hands-On Azure Experience</li>
+                </ul>
+                <a
+                  href="assets/pdf/Microsoft Azure.pdf"
+                  download
+                  class="certifications__download button"
+                >
+                  Download Certificate
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Machine Learning -->
+          <article class="certifications__card">
+            <i class="fas fa-brain certifications__icon" aria-hidden="true"></i>
+            <h3 class="certifications__title">Machine Learning</h3>
+            <p class="certifications__description">
+              Completed a 6-week Internshala course covering algorithms, preprocessing & model evaluation.
+            </p>
+            <button
+              class="certifications__button button"
+              onclick="openModal('modal-ml')"
+            >
+              Know More
+            </button>
+            <div class="certifications__modal" id="modal-ml">
+              <div class="certifications__modal-content">
+                <button
+                  class="certifications__modal-close"
+                  onclick="closeModal('modal-ml')"
+                  aria-label="Close modal"
+                >
+                  <i class="ri-close-line"></i>
+                </button>
+                <h3 class="certifications__modal-title">Internshala Certified</h3>
+                <ul class="certifications__modal-list">
+                  <li>Machine Learning Algorithms: Linear Regression, Decision Trees</li>
+                  <li>Data Preprocessing: Cleaning & Preparing Data</li>
+                  <li>Model Evaluation: Cross-Validation & Metrics</li>
+                </ul>
+                <a
+                  href="assets/pdf/Machine Learning.pdf"
+                  download
+                  class="certifications__download button"
+                >
+                  Download Certificate
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== LANGUAGES ====================-->
+    <section class="languages section" id="languages">
+      <div class="container">
+        <h2 class="section__title">My Language Journey</h2>
+        <span class="section__subtitle">Fluency & Proficiency</span>
+        <div class="languages__container">
+          <div class="languages__cards">
+            <!-- English -->
+            <article class="languages__card">
+              <div class="languages__border">
+                <img
+                  src="assets/img/English.jpeg"
+                  alt="English"
+                  class="languages__img"
+                  width="80"
+                  height="80"
+                />
+              </div>
+              <h3 class="languages__name">English</h3>
+              <p class="languages__level">
+                Proficiency: <strong>C1</strong><br />
+                Fluent in professional communication, formal writing, and complex comprehension.
+              </p>
+            </article>
+
+            <!-- German -->
+            <article class="languages__card">
+              <div class="languages__border">
+                <img
+                  src="assets/img/german.png"
+                  alt="German"
+                  class="languages__img"
+                  width="80"
+                  height="80"
+                />
+              </div>
+              <h3 class="languages__name">German</h3>
+              <p class="languages__level">
+                Proficiency: <strong>B2</strong><br />
+                Confident in conversations, expressing opinions, and engaging in discussions.
+              </p>
+            </article>
+
+            <!-- Hindi -->
+            <article class="languages__card">
+              <div class="languages__border">
+                <img
+                  src="assets/img/Hindi.png"
+                  alt="Hindi"
+                  class="languages__img"
+                  width="80"
+                  height="80"
+                />
+              </div>
+              <h3 class="languages__name">Hindi</h3>
+              <p class="languages__level">
+                Native language—fully proficient in speaking, reading, writing, with formal & casual fluency.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== CONTACT ====================-->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <h2 class="section__title">Get in Touch</h2>
+        <span class="section__subtitle">I’m just a click away</span>
+        <div class="contact__container">
+          <div class="contact__information">
+            <h3 class="contact__title">Let’s Talk</h3>
+            <p class="contact__text">
+              Feel free to reach out for project inquiries, collaborations, or just a friendly hello.
+            </p>
+            <ul class="contact__details">
+              <li>
+                <i class="ri-mail-fill contact__icon"></i>ketan@example.com
+              </li>
+              <li>
+                <i class="ri-phone-fill contact__icon"></i>+49 123 456 7890
+              </li>
+              <li>
+                <i class="ri-map-pin-fill contact__icon"></i>Heidelberg, Germany
+              </li>
+            </ul>
+          </div>
+          <div class="contact__form">
+            <form action="#" class="contact__form-grid">
+              <div class="contact__form-group">
+                <label for="name" class="contact__label">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="contact__input"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="contact__form-group">
+                <label for="email" class="contact__label">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="contact__input"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="contact__form-group contact__form-full">
+                <label for="message" class="contact__label">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="contact__input"
+                  rows="5"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <div class="contact__form-btn">
+                <button type="submit" class="button">Send Message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--==================== FOOTER ====================-->
+  <footer class="footer">
+    <div class="footer__container container">
+      <a href="index.html" class="footer__logo">Ketan Darekar</a>
+      <ul class="footer__links">
+        <li><a href="about.html" class="footer__link">About Me</a></li>
+        <li><a href="work.html" class="footer__link">Portfolio</a></li>
+        <li><a href="contact.html" class="footer__link">Contact Me</a></li>
+      </ul>
+      <div class="footer__social">
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noopener"
+          class="footer__social-link"
+          aria-label="Facebook"
+        >
+          <i class="ri-facebook-circle-fill"></i>
+        </a>
+        <a
+          href="https://github.com/Ketan5757"
+          target="_blank"
+          rel="noopener"
+          class="footer__social-link"
+          aria-label="GitHub"
+        >
+          <i class="ri-github-fill"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/ketan-darekar-6ba32a1b4/"
+          target="_blank"
+          rel="noopener"
+          class="footer__social-link"
+          aria-label="LinkedIn"
+        >
+          <i class="ri-linkedin-box-fill"></i>
+        </a>
+      </div>
+      <span class="footer__copy">© 2025 Made by Ketan Darekar</span>
+    </div>
+  </footer>
+
+  <!--==================== SCRIPTS ====================-->
+  <script>
+    // Toggle mobile nav
+    const navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close'),
+      navMenu = document.getElementById('nav-menu');
+
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navMenu.classList.add('active');
+      });
+    }
+    if (navClose) {
+      navClose.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    }
+
+    // Modal open/close functions
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+  </script>
+
+  <!-- Remixicon CDN -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.js"
+    integrity="sha512-BhL7G+5mwrnbHps+XYHeYJDF5OK4hc2qTRZ5BWmLGnSZjyjcwWfYyLvg79P5xTFjTcYfuc2+IICDcFMpQYf/vw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+</body>
 </html>
