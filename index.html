@@ -10,7 +10,7 @@
     rel="stylesheet"
   />
 
-  <!-- Animate.css for smooth fade‐in animations -->
+  <!-- Animate.css for smooth fade-in animations -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -114,7 +114,7 @@
       outline: none;
     }
 
-    /* HEADER & NAV */
+    /* ===================== HEADER & NAV ===================== */
     .header {
       position: fixed;
       top: 0;
@@ -122,7 +122,7 @@
       width: 100%;
       background-color: var(--clr-light);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      z-index: 1000;
+      z-index: 9999; /* Very high so header stays on top of everything */
       transition: background-color var(--transition-fast);
     }
 
@@ -208,6 +208,7 @@
       font-size: 1.5rem;
       color: var(--clr-primary);
       transition: color var(--transition-fast);
+      z-index: 10000; /* ensure toggle button also sits above modals */
     }
 
     .nav__toggle:hover,
@@ -232,6 +233,7 @@
         box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
         gap: 1.5rem;
         transition: right var(--transition-fast);
+        z-index: 9999; /* match header so it sits below header but above content */
       }
       .nav__menu.active {
         right: 0;
@@ -247,237 +249,237 @@
     }
 
     /* ===================== HOME (Hero) SECTION (Lighter) ===================== */
-.home {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  position: relative;
-  margin-top: 4.5rem; /* offset for fixed header */
-  overflow: hidden;
+    .home {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+      margin-top: 4.5rem; /* offset for fixed header */
+      overflow: hidden;
 
-  /* Lighter two-tone gradient (light navy → pale teal) */
-  background: linear-gradient(
-    135deg,
-    rgba(26, 62, 102, 0.9) 0%,    /* a lighter navy-blue */
-    rgba(72, 181, 200, 0.9) 100%  /* a softer teal */
-  );
-  color: var(--clr-light);
-}
+      /* Lighter two-tone gradient (light navy → pale teal) */
+      background: linear-gradient(
+        135deg,
+        rgba(26, 62, 102, 0.9) 0%,    /* a lighter navy-blue */
+        rgba(72, 181, 200, 0.9) 100%  /* a softer teal */
+      );
+      color: var(--clr-light);
+    }
 
-/* Noise overlay (same as before) */
-.noise-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.05'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-}
+    /* Noise overlay (same as before) */
+    .noise-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.05'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
 
-/* Animated blob shape behind content — lighten its gold slightly */
-.blob {
-  position: absolute;
-  top: -150px;
-  left: -100px;
-  width: 650px;
-  height: 650px;
-  background: radial-gradient(
-    circle at center,
-    rgba(249, 202, 36, 0.25) 0%, /* lighter, more translucent gold */
-    transparent 60%
-  );
-  border-radius: 50% 50% 45% 55%;
-  opacity: 0.25;
-  animation: blobMove 10s ease-in-out infinite alternate;
-  z-index: 0;
-}
+    /* Animated blob shape behind content — lighten its gold slightly */
+    .blob {
+      position: absolute;
+      top: -150px;
+      left: -100px;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(
+        circle at center,
+        rgba(249, 202, 36, 0.25) 0%, /* lighter, more translucent gold */
+        transparent 60%
+      );
+      border-radius: 50% 50% 45% 55%;
+      opacity: 0.25;
+      animation: blobMove 10s ease-in-out infinite alternate;
+      z-index: 0;
+    }
 
-@keyframes blobMove {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  100% {
-    transform: translate(50px, 50px) scale(1.1);
-  }
-}
+    @keyframes blobMove {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        transform: translate(50px, 50px) scale(1.1);
+      }
+    }
 
-/* Subtle geometric overlay rotating (unchanged) */
-.home::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.02) 0px,
-    rgba(255, 255, 255, 0.02) 1px,
-    transparent 1px,
-    transparent 6px
-  );
-  transform: translate(-50%, -50%);
-  animation: rotateOverlay 20s linear infinite;
-  z-index: 0;
-}
+    /* Subtle geometric overlay rotating (unchanged) */
+    .home::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.02) 0px,
+        rgba(255, 255, 255, 0.02) 1px,
+        transparent 1px,
+        transparent 6px
+      );
+      transform: translate(-50%, -50%);
+      animation: rotateOverlay 20s linear infinite;
+      z-index: 0;
+    }
 
-@keyframes rotateOverlay {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
+    @keyframes rotateOverlay {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
 
-/* Hero content wrapper */
-.home__container {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-  align-items: center;
-  z-index: 1;
-  padding: 2rem 0;
-}
+    /* Hero content wrapper */
+    .home__container {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      align-items: center;
+      z-index: 1;
+      padding: 2rem 0;
+    }
 
-/* Profile Photo (straight) */
-.home__profile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    /* Profile Photo (straight) */
+    .home__profile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.home__img {
-  border-radius: 50%;
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-  border: 6px solid var(--clr-light);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
+    .home__img {
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border: 6px solid var(--clr-light);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
 
-.home__img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
-}
+    .home__img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+    }
 
-/* Text Content Layout */
-.home__content {
-  text-align: left;
-  padding: 1rem;
-}
+    /* Text Content Layout */
+    .home__content {
+      text-align: left;
+      padding: 1rem;
+    }
 
-/* Animated Headline & Underline */
-.home__name {
-  font-family: var(--font-secondary);
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-  color: var(--clr-light);
-  position: relative;
-  display: inline-block;
-}
+    /* Animated Headline & Underline */
+    .home__name {
+      font-family: var(--font-secondary);
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      color: var(--clr-light);
+      position: relative;
+      display: inline-block;
+    }
 
-.home__name::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 4px;
-  background-color: var(--clr-accent);
-  opacity: 0.8;
-  border-radius: 2px;
-  transform-origin: left;
-  transform: scaleX(0);
-  animation: slideIn 1s ease-out 0.5s forwards;
-}
+    .home__name::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 4px;
+      background-color: var(--clr-accent);
+      opacity: 0.8;
+      border-radius: 2px;
+      transform-origin: left;
+      transform: scaleX(0);
+      animation: slideIn 1s ease-out 0.5s forwards;
+    }
 
-@keyframes slideIn {
-  0% {
-    transform: scaleX(0);
-  }
-  100% {
-    transform: scaleX(1);
-  }
-}
+    @keyframes slideIn {
+      0% {
+        transform: scaleX(0);
+      }
+      100% {
+        transform: scaleX(1);
+      }
+    }
 
-/* Profession & Tagline fade-in */
-.home__profession {
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.85);
-  opacity: 0;
-}
-.home__tagline {
-  font-family: var(--font-secondary);
-  font-size: 1.15rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 1.5rem;
-  opacity: 0;
-}
+    /* Profession & Tagline fade-in */
+    .home__profession {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.85);
+      opacity: 0;
+    }
+    .home__tagline {
+      font-family: var(--font-secondary);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+    }
 
-/* Social Icons & Button */
-.home__social {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-  opacity: 0;
-}
+    /* Social Icons & Button */
+    .home__social {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+    }
 
-.home__social-link {
-  font-size: 1.75rem;
-  color: var(--clr-light);
-  transition: transform var(--transition-fast), color var(--transition-fast);
-}
+    .home__social-link {
+      font-size: 1.75rem;
+      color: var(--clr-light);
+      transition: transform var(--transition-fast), color var(--transition-fast);
+    }
 
-.home__social-link:hover {
-  transform: scale(1.1);
-  color: var(--clr-accent);
-}
+    .home__social-link:hover {
+      transform: scale(1.1);
+      color: var(--clr-accent);
+    }
 
-.home__button {
-  display: inline-block;
-  background-color: var(--clr-accent);
-  color: var(--clr-light);
-  font-weight: 500;
-  padding: 0.75rem 1.75rem;
-  border-radius: 0.5rem;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
-  opacity: 0;
-}
+    .home__button {
+      display: inline-block;
+      background-color: var(--clr-accent);
+      color: var(--clr-light);
+      font-weight: 500;
+      padding: 0.75rem 1.75rem;
+      border-radius: 0.5rem;
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+      opacity: 0;
+    }
 
-.home__button:hover {
-  background-color: var(--clr-secondary);
-  transform: translateY(-2px);
-}
+    .home__button:hover {
+      background-color: var(--clr-secondary);
+      transform: translateY(-2px);
+    }
 
-/* Hook up Animate.css fade-ins (via classes in HTML) */
-.home__profession.animate__animated {
-  animation-delay: 0.8s;
-  animation-fill-mode: both;
-}
-.home__tagline.animate__animated {
-  animation-delay: 1.2s;
-  animation-fill-mode: both;
-}
-.home__social.animate__animated {
-  animation-delay: 1.6s;
-  animation-fill-mode: both;
-}
-.home__button.animate__animated {
-  animation-delay: 2s;
-  animation-fill-mode: both;
-}
+    /* Hook up Animate.css fade-ins (via classes in HTML) */
+    .home__profession.animate__animated {
+      animation-delay: 0.8s;
+      animation-fill-mode: both;
+    }
+    .home__tagline.animate__animated {
+      animation-delay: 1.2s;
+      animation-fill-mode: both;
+    }
+    .home__social.animate__animated {
+      animation-delay: 1.6s;
+      animation-fill-mode: both;
+    }
+    .home__button.animate__animated {
+      animation-delay: 2s;
+      animation-fill-mode: both;
+    }
 
-    /* EDUCATION SECTION */
+    /* ===================== EDUCATION SECTION ===================== */
     .education__container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -545,7 +547,7 @@
       line-height: 1.5;
     }
 
-    /* PROJECTS SECTION */
+    /* ===================== PROJECTS SECTION ===================== */
     .projects__container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -638,7 +640,7 @@
       font-weight: 400;
     }
 
-    /* CERTIFICATIONS SECTION */
+    /* ===================== CERTIFICATIONS SECTION ===================== */
     .certifications__container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -695,7 +697,7 @@
       transform: translateY(-2px);
     }
 
-    /* MODAL */
+    /* Modal overlay sits under header but above everything else */
     .certifications__modal {
       position: fixed;
       top: 0;
@@ -703,10 +705,10 @@
       width: 100%;
       height: 100%;
       background: rgba(47, 54, 64, 0.8);
-      display: none;
+      display: none; /* hidden by default */
       align-items: center;
       justify-content: center;
-      z-index: 2000;
+      z-index: 9998; /* below header (9999) but above content */
       padding: 1rem;
     }
 
@@ -767,7 +769,7 @@
       background-color: var(--clr-secondary);
     }
 
-    /* LANGUAGES SECTION */
+    /* ===================== LANGUAGES SECTION ===================== */
     .languages__container {
       max-width: 900px;
       margin: 0 auto;
@@ -831,7 +833,7 @@
       line-height: 1.5;
     }
 
-    /* CONTACT SECTION */
+    /* ===================== CONTACT SECTION ===================== */
     .contact__container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -937,7 +939,7 @@
       transform: translateY(-2px);
     }
 
-    /* FOOTER */
+    /* ===================== FOOTER ===================== */
     .footer {
       background-color: var(--clr-dark);
       color: var(--clr-light);
@@ -1360,265 +1362,421 @@
       </div>
     </section>
 
-    <!--==================== CERTIFICATIONS ====================-->
-    <section class="certifications section" id="certifications">
-      <div class="container">
-        <h2 class="section__title">Certifications</h2>
-        <span class="section__subtitle">Verified Credentials</span>
-        <div class="certifications__container">
-          <!-- Python Full Stack -->
-          <article class="certifications__card">
-            <i class="fab fa-python certifications__icon" aria-hidden="true"></i>
-            <h3 class="certifications__title">Python Full Stack</h3>
-            <p class="certifications__description">
-              Intensive 6-month course from CJC Institute — built dynamic web pages using Python & Django.
-            </p>
-            <button
-              class="certifications__button button"
-              onclick="openModal('modal-python')"
-            >
-              Know More
-            </button>
-            <div class="certifications__modal" id="modal-python">
-              <div class="certifications__modal-content">
-                <button
-                  class="certifications__modal-close"
-                  onclick="closeModal('modal-python')"
-                  aria-label="Close modal"
-                >
-                  <i class="ri-close-line"></i>
-                </button>
-                <h3 class="certifications__modal-title">CJC Certified</h3>
-                <ul class="certifications__modal-list">
-                  <li>Mastered Python for Web Development</li>
-                  <li>Developed with Django Framework</li>
-                  <li>Utilized MongoDB for Data Management</li>
-                  <li>Enhanced UIs with JavaScript, HTML & CSS</li>
-                </ul>
-                <a
-                  href="assets/pdf/python certificate.pdf"
-                  download
-                  class="certifications__download button"
-                >
-                  Download Certificate
-                </a>
-              </div>
+    <!-- ==================== CERTIFICATIONS SECTION ==================== -->
+<style>
+  /* ==================== Certifications Section CSS ==================== */
+  .certifications__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    padding-top: 2.5rem;
+  }
+  .certifications__card {
+    background-color: var(--clr-light);
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    text-align: center;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .certifications__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  }
+  .certifications__icon {
+    font-size: 2.5rem;
+    color: var(--clr-accent);
+    margin-bottom: 1rem;
+  }
+  .certifications__title {
+    font-family: var(--font-secondary);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: var(--clr-dark);
+  }
+  .certifications__description {
+    font-size: 0.95rem;
+    color: var(--clr-muted);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  .certifications__button {
+    background-color: var(--clr-secondary);
+    color: var(--clr-light);
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+  }
+  .certifications__button:hover {
+    background-color: var(--clr-primary);
+    transform: translateY(-2px);
+  }
+
+  /* ==================== Modal Overlay ==================== */
+  .certifications__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(47, 54, 64, 0.8);
+    display: none; /* hidden by default */
+    align-items: center;
+    justify-content: center;
+    z-index: 9998; /* just below header (z-index: 9999) */
+    padding: 1rem;
+  }
+  .certifications__modal-content {
+    background: var(--clr-light);
+    border-radius: 1rem;
+    max-width: 500px;
+    width: 100%;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    position: relative;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    animation: fadeInDown 0.4s ease-out;
+  }
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ==================== Close (“×”) Button ==================== */
+  .certifications__modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--clr-dark);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    line-height: 1;
+  }
+  .certifications__modal-close:hover {
+    color: var(--clr-secondary);
+  }
+
+  /* ==================== Modal Title & List ==================== */
+  .certifications__modal-title {
+    font-family: var(--font-secondary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--clr-secondary);
+  }
+  .certifications__modal-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    color: var(--clr-muted);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .certifications__download {
+    display: inline-block;
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: background-color var(--transition-fast);
+  }
+  .certifications__download:hover {
+    background-color: var(--clr-secondary);
+  }
+</style>
+
+<section class="certifications section" id="certifications">
+  <div class="container">
+    <h2 class="section__title">Certifications</h2>
+    <span class="section__subtitle">Verified Credentials</span>
+    <div class="certifications__container">
+      <!-- Python Full Stack -->
+      <article class="certifications__card">
+        <i class="fab fa-python certifications__icon" aria-hidden="true"></i>
+        <h3 class="certifications__title">Python Full Stack</h3>
+        <p class="certifications__description">
+          Intensive 6-month course from CJC Institute — built dynamic web pages using Python & Django.
+        </p>
+        <button
+          class="certifications__button button"
+          onclick="openModal('modal-python')"
+        >
+          Know More
+        </button>
+      </article>
+
+      <!-- Azure Fundamentals -->
+      <article class="certifications__card">
+        <i class="fas fa-cloud certifications__icon" aria-hidden="true"></i>
+        <h3 class="certifications__title">Azure Fundamentals</h3>
+        <p class="certifications__description">
+          “Azure Fundamentals” Microsoft Certified — foundation in Azure services & cloud concepts.
+        </p>
+        <button
+          class="certifications__button button"
+          onclick="openModal('modal-azure')"
+        >
+          Know More
+        </button>
+      </article>
+
+      <!-- Machine Learning -->
+      <article class="certifications__card">
+        <i class="fas fa-brain certifications__icon" aria-hidden="true"></i>
+        <h3 class="certifications__title">Machine Learning</h3>
+        <p class="certifications__description">
+          Completed a 6-week Internshala course covering algorithms, preprocessing & model evaluation.
+        </p>
+        <button
+          class="certifications__button button"
+          onclick="openModal('modal-ml')"
+        >
+          Know More
+        </button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MODALS (outside of <main>) ==================== -->
+<!-- Python Full Stack Modal -->
+<div class="certifications__modal" id="modal-python">
+  <div class="certifications__modal-content">
+    <button
+      class="certifications__modal-close"
+      onclick="closeModal('modal-python')"
+      aria-label="Close modal"
+    >
+      &times;
+    </button>
+    <h3 class="certifications__modal-title">CJC Certified</h3>
+    <ul class="certifications__modal-list">
+      <li>Mastered Python for Web Development</li>
+      <li>Developed with Django Framework</li>
+      <li>Utilized MongoDB for Data Management</li>
+      <li>Enhanced UIs with JavaScript, HTML & CSS</li>
+    </ul>
+    <a
+      href="assets/pdf/python certificate.pdf"
+      download
+      class="certifications__download button"
+    >
+      Download Certificate
+    </a>
+  </div>
+</div>
+
+<!-- Azure Fundamentals Modal -->
+<div class="certifications__modal" id="modal-azure">
+  <div class="certifications__modal-content">
+    <button
+      class="certifications__modal-close"
+      onclick="closeModal('modal-azure')"
+      aria-label="Close modal"
+    >
+      &times;
+    </button>
+    <h3 class="certifications__modal-title">Microsoft Certified</h3>
+    <ul class="certifications__modal-list">
+      <li>Learned Core Azure Concepts</li>
+      <li>Explored Azure Resource Management</li>
+      <li>Developed Cloud Security Knowledge</li>
+      <li>Hands-On Azure Experience</li>
+    </ul>
+    <a
+      href="assets/pdf/Microsoft Azure.pdf"
+      download
+      class="certifications__download button"
+    >
+      Download Certificate
+    </a>
+  </div>
+</div>
+
+<!-- Machine Learning Modal -->
+<div class="certifications__modal" id="modal-ml">
+  <div class="certifications__modal-content">
+    <button
+      class="certifications__modal-close"
+      onclick="closeModal('modal-ml')"
+      aria-label="Close modal"
+    >
+      &times;
+    </button>
+    <h3 class="certifications__modal-title">Internshala Certified</h3>
+    <ul class="certifications__modal-list">
+      <li>Machine Learning Algorithms: Linear Regression, Decision Trees</li>
+      <li>Data Preprocessing: Cleaning & Preparing Data</li>
+      <li>Model Evaluation: Cross-Validation & Metrics</li>
+    </ul>
+    <a
+      href="assets/pdf/Machine Learning.pdf"
+      download
+      class="certifications__download button"
+    >
+      Download Certificate
+    </a>
+  </div>
+</div>
+
+<script>
+  // JavaScript to Open/Close Modals
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+      modal.style.display = 'flex';
+    }
+  }
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  }
+</script>
+
+  <!--==================== LANGUAGES ====================-->
+  <section class="languages section" id="languages">
+    <div class="container">
+      <h2 class="section__title">My Language Journey</h2>
+      <span class="section__subtitle">Fluency & Proficiency</span>
+      <div class="languages__container">
+        <div class="languages__cards">
+          <!-- English -->
+          <article class="languages__card">
+            <div class="languages__border">
+              <img
+                src="assets/img/English.jpeg"
+                alt="English"
+                class="languages__img"
+                width="80"
+                height="80"
+              />
             </div>
+            <h3 class="languages__name">English</h3>
+            <p class="languages__level">
+              Proficiency: <strong>C1</strong><br />
+              Fluent in professional communication, formal writing, and complex comprehension.
+            </p>
           </article>
 
-          <!-- Azure Fundamentals -->
-          <article class="certifications__card">
-            <i class="fas fa-cloud certifications__icon" aria-hidden="true"></i>
-            <h3 class="certifications__title">Azure Fundamentals</h3>
-            <p class="certifications__description">
-              “Azure Fundamentals” Microsoft Certified — foundation in Azure services & cloud concepts.
-            </p>
-            <button
-              class="certifications__button button"
-              onclick="openModal('modal-azure')"
-            >
-              Know More
-            </button>
-            <div class="certifications__modal" id="modal-azure">
-              <div class="certifications__modal-content">
-                <button
-                  class="certifications__modal-close"
-                  onclick="closeModal('modal-azure')"
-                  aria-label="Close modal"
-                >
-                  <i class="ri-close-line"></i>
-                </button>
-                <h3 class="certifications__modal-title">Microsoft Certified</h3>
-                <ul class="certifications__modal-list">
-                  <li>Learned Core Azure Concepts</li>
-                  <li>Explored Azure Resource Management</li>
-                  <li>Developed Cloud Security Knowledge</li>
-                  <li>Hands-On Azure Experience</li>
-                </ul>
-                <a
-                  href="assets/pdf/Microsoft Azure.pdf"
-                  download
-                  class="certifications__download button"
-                >
-                  Download Certificate
-                </a>
-              </div>
+          <!-- German -->
+          <article class="languages__card">
+            <div class="languages__border">
+              <img
+                src="assets/img/german.png"
+                alt="German"
+                class="languages__img"
+                width="80"
+                height="80"
+              />
             </div>
+            <h3 class="languages__name">German</h3>
+            <p class="languages__level">
+              Proficiency: <strong>B2</strong><br />
+              Confident in conversations, expressing opinions, and engaging in discussions.
+            </p>
           </article>
 
-          <!-- Machine Learning -->
-          <article class="certifications__card">
-            <i class="fas fa-brain certifications__icon" aria-hidden="true"></i>
-            <h3 class="certifications__title">Machine Learning</h3>
-            <p class="certifications__description">
-              Completed a 6-week Internshala course covering algorithms, preprocessing & model evaluation.
-            </p>
-            <button
-              class="certifications__button button"
-              onclick="openModal('modal-ml')"
-            >
-              Know More
-            </button>
-            <div class="certifications__modal" id="modal-ml">
-              <div class="certifications__modal-content">
-                <button
-                  class="certifications__modal-close"
-                  onclick="closeModal('modal-ml')"
-                  aria-label="Close modal"
-                >
-                  <i class="ri-close-line"></i>
-                </button>
-                <h3 class="certifications__modal-title">Internshala Certified</h3>
-                <ul class="certifications__modal-list">
-                  <li>Machine Learning Algorithms: Linear Regression, Decision Trees</li>
-                  <li>Data Preprocessing: Cleaning & Preparing Data</li>
-                  <li>Model Evaluation: Cross-Validation & Metrics</li>
-                </ul>
-                <a
-                  href="assets/pdf/Machine Learning.pdf"
-                  download
-                  class="certifications__download button"
-                >
-                  Download Certificate
-                </a>
-              </div>
+          <!-- Hindi -->
+          <article class="languages__card">
+            <div class="languages__border">
+              <img
+                src="assets/img/Hindi.png"
+                alt="Hindi"
+                class="languages__img"
+                width="80"
+                height="80"
+              />
             </div>
+            <h3 class="languages__name">Hindi</h3>
+            <p class="languages__level">
+              Native language—fully proficient in speaking, reading, writing, with formal & casual fluency.
+            </p>
           </article>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!--==================== LANGUAGES ====================-->
-    <section class="languages section" id="languages">
-      <div class="container">
-        <h2 class="section__title">My Language Journey</h2>
-        <span class="section__subtitle">Fluency & Proficiency</span>
-        <div class="languages__container">
-          <div class="languages__cards">
-            <!-- English -->
-            <article class="languages__card">
-              <div class="languages__border">
-                <img
-                  src="assets/img/English.jpeg"
-                  alt="English"
-                  class="languages__img"
-                  width="80"
-                  height="80"
-                />
-              </div>
-              <h3 class="languages__name">English</h3>
-              <p class="languages__level">
-                Proficiency: <strong>C1</strong><br />
-                Fluent in professional communication, formal writing, and complex comprehension.
-              </p>
-            </article>
-
-            <!-- German -->
-            <article class="languages__card">
-              <div class="languages__border">
-                <img
-                  src="assets/img/german.png"
-                  alt="German"
-                  class="languages__img"
-                  width="80"
-                  height="80"
-                />
-              </div>
-              <h3 class="languages__name">German</h3>
-              <p class="languages__level">
-                Proficiency: <strong>B2</strong><br />
-                Confident in conversations, expressing opinions, and engaging in discussions.
-              </p>
-            </article>
-
-            <!-- Hindi -->
-            <article class="languages__card">
-              <div class="languages__border">
-                <img
-                  src="assets/img/Hindi.png"
-                  alt="Hindi"
-                  class="languages__img"
-                  width="80"
-                  height="80"
-                />
-              </div>
-              <h3 class="languages__name">Hindi</h3>
-              <p class="languages__level">
-                Native language—fully proficient in speaking, reading, writing, with formal & casual fluency.
-              </p>
-            </article>
-          </div>
+  <!--==================== CONTACT ====================-->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <h2 class="section__title">Get in Touch</h2>
+      <span class="section__subtitle">I’m just a click away</span>
+      <div class="contact__container">
+        <div class="contact__information">
+          <h3 class="contact__title">Let’s Talk</h3>
+          <p class="contact__text">
+            Feel free to reach out for project inquiries, collaborations, or just a friendly hello.
+          </p>
+          <ul class="contact__details">
+            <li>
+              <i class="ri-mail-fill contact__icon"></i>ketan.darekar99@gmail.com
+            </li>
+            <li>
+              <i class="ri-phone-fill contact__icon"></i>+49 17667708933
+            </li>
+            <li>
+              <i class="ri-map-pin-fill contact__icon"></i>Mannheim, Germany
+            </li>
+          </ul>
+        </div>
+        <div class="contact__form">
+          <form action="#" class="contact__form-grid">
+            <div class="contact__form-group">
+              <label for="name" class="contact__label">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="contact__input"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div class="contact__form-group">
+              <label for="email" class="contact__label">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="contact__input"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+            <div class="contact__form-group contact__form-full">
+              <label for="message" class="contact__label">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                class="contact__input"
+                rows="5"
+                placeholder="Your Message"
+                required
+              ></textarea>
+            </div>
+            <div class="contact__form-btn">
+              <button type="submit" class="button">Send Message</button>
+            </div>
+          </form>
         </div>
       </div>
-    </section>
-
-    <!--==================== CONTACT ====================-->
-    <section class="contact section" id="contact">
-      <div class="container">
-        <h2 class="section__title">Get in Touch</h2>
-        <span class="section__subtitle">I’m just a click away</span>
-        <div class="contact__container">
-          <div class="contact__information">
-            <h3 class="contact__title">Let’s Talk</h3>
-            <p class="contact__text">
-              Feel free to reach out for project inquiries, collaborations, or just a friendly hello.
-            </p>
-            <ul class="contact__details">
-              <li>
-                <i class="ri-mail-fill contact__icon"></i>ketan.darekar99@gmail.com
-              </li>
-              <li>
-                <i class="ri-phone-fill contact__icon"></i>+49 17667708933
-              </li>
-              <li>
-                <i class="ri-map-pin-fill contact__icon"></i>Mannheim, Germany
-              </li>
-            </ul>
-          </div>
-          <div class="contact__form">
-            <form action="#" class="contact__form-grid">
-              <div class="contact__form-group">
-                <label for="name" class="contact__label">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  class="contact__input"
-                  placeholder="Your Name"
-                  required
-                />
-              </div>
-              <div class="contact__form-group">
-                <label for="email" class="contact__label">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="contact__input"
-                  placeholder="Your Email"
-                  required
-                />
-              </div>
-              <div class="contact__form-group contact__form-full">
-                <label for="message" class="contact__label">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  class="contact__input"
-                  rows="5"
-                  placeholder="Your Message"
-                  required
-                ></textarea>
-              </div>
-              <div class="contact__form-btn">
-                <button type="submit" class="button">Send Message</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <!--==================== FOOTER ====================-->
   <footer class="footer">
@@ -1682,10 +1840,16 @@
 
     // Modal open/close functions
     function openModal(id) {
-      document.getElementById(id).style.display = 'flex';
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.style.display = 'flex';
+      }
     }
     function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.style.display = 'none';
+      }
     }
   </script>
 
