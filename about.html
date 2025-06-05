@@ -1,160 +1,558 @@
+```html
 <!DOCTYPE html>
-   <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <!--=============== FAVICON ===============-->
-      <link rel="shortcut icon" href="assets/img/K.webp" type="image/x-icon">
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-      <!--=============== REMIXICONS ===============-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+  <!-- Animate.css for smooth fade-in animations -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 
-      <!--=============== CSS ===============-->
-      <link rel="stylesheet" href="assets/css/styles.css">
+  <!-- Remixicon CDN -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.js"
+    integrity="sha512-BhL7G+5mwrnbHps+XYHeYJDF5OK4hc2qTRZ5BWmLGnSZjyjcwWfYyLvg79P5xTFjTcYfuc2+IICDcFMpQYf/vw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
 
-      <title>About - Responsive portfolio website - Ketan Darekar</title>
-   </head>
-   <body>
-      <!--==================== HEADER ====================-->
-      <header class="header header-pages" id="header">
-         <nav class="nav container">
-            <a href="index.html" class="nav__logo">Ketan Darekar</a>
+  <title>About - Responsive Portfolio Website - Ketan Darekar</title>
 
-            <div class="nav__menu" id="nav-menu">
-               <ul class="nav__list">
-                  <li class="nav__item">
-                     <a href="index.html" class="nav__link">Home</a>
-                  </li>
+  <style>
+    :root {
+      /* Refined Professional Palette */
+      --clr-primary: #0a3d62;        /* deep navy */
+      --clr-secondary: #22a6b3;      /* teal */
+      --clr-accent: #f9ca24;         /* gold */
+      --clr-bg: #f8f9fa;             /* light gray */
+      --clr-light: #ffffff;
+      --clr-dark: #2f3640;           /* charcoal */
+      --clr-muted: #636e72;          /* slate gray */
+      --clr-soft: #dfe6e9;           /* pale gray */
+      --font-primary: 'Inter', sans-serif;
+      --font-secondary: 'Poppins', sans-serif;
+      --transition-fast: 0.25s ease;
+    }
 
-                  <li class="nav__item">
-                     <a href="about.html" class="nav__link">About Me</a>
-                  </li>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-                  <li class="nav__item">
-                     <a href="work.html" class="nav__link">Portfolio</a>
-                  </li>
+    html {
+      scroll-behavior: smooth;
+    }
 
-                  <li class="nav__item">
-                     <a href="contact.html" class="button">Contact Me</a>
-                  </li>
-               </ul>
+    body {
+      font-family: var(--font-primary);
+      background-color: var(--clr-bg);
+      color: var(--clr-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-               <!-- Close button -->
-               <div class="nav__close" id="nav-close">
-                  <i class="ri-close-line"></i>
-               </div>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      width: min(100% - 2rem, 1200px);
+      margin-inline: auto;
+      padding: 0 1rem;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section__title {
+      font-family: var(--font-secondary);
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--clr-dark);
+      text-align: center;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .section__title::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background-color: var(--clr-secondary);
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .section__subtitle {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--clr-muted);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+
+    /* ===================== HEADER & NAV ===================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--clr-light);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      z-index: 9999; /* Very high so header stays on top of everything */
+      transition: background-color var(--transition-fast);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.5rem;
+    }
+
+    .nav__logo {
+      font-family: var(--font-secondary);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--clr-primary);
+      transition: color var(--transition-fast);
+    }
+
+    .nav__menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav__list {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav__item {
+      position: relative;
+    }
+
+    .nav__link {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--clr-dark);
+      position: relative;
+      padding: 0.25rem 0;
+      transition: color var(--transition-fast);
+    }
+
+    .nav__link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background-color: var(--clr-primary);
+      transition: width var(--transition-fast);
+      border-radius: 1px;
+    }
+
+    .nav__link:hover::after,
+    .nav__link.active::after {
+      width: 100%;
+    }
+
+    .nav__link:hover {
+      color: var(--clr-primary);
+    }
+
+    .nav__link.button {
+      background-color: var(--clr-secondary);
+      color: var(--clr-light);
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav__link.button:hover {
+      background-color: var(--clr-accent);
+      transform: translateY(-2px);
+    }
+
+    .nav__toggle,
+    .nav__close {
+      display: none;
+      background: none;
+      font-size: 1.5rem;
+      color: var(--clr-primary);
+      transition: color var(--transition-fast);
+      z-index: 10000; /* ensure toggle button sits above everything */
+    }
+
+    .nav__toggle:hover,
+    .nav__close:hover {
+      color: var(--clr-secondary);
+    }
+
+    /* Responsive Nav */
+    @media (max-width: 768px) {
+      .nav__toggle {
+        display: block;
+      }
+      .nav__menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 260px;
+        height: 100vh;
+        background-color: var(--clr-light);
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+        gap: 1.5rem;
+        transition: right var(--transition-fast);
+        z-index: 9999;
+      }
+      .nav__menu.active {
+        right: 0;
+      }
+      .nav__close {
+        display: block;
+        align-self: flex-end;
+      }
+      .nav__list {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+
+    /* ===================== ABOUT SECTION ===================== */
+    .about__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      align-items: center;
+      margin-top: 4.5rem; /* offset for fixed header */
+    }
+    .about__perfil {
+      display: flex;
+      align-self: start;      /* make it sit at the top of the grid row */
+      margin-top: 10px;      
+      justify-content: center;
+      align-items: center;
+    }
+    .perfil__img {
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border: 6px solid var(--clr-light);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+    .perfil__img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+    }
+    .about__content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .about__name {
+      font-family: var(--font-secondary);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--clr-dark);
+      margin-bottom: 0.5rem;
+    }
+    .about__profession {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--clr-secondary);
+      margin-bottom: 1rem;
+    }
+    .about__description {
+      font-size: 1rem;
+      color: var(--clr-muted);
+      line-height: 1.6;
+    }
+    .about__button {
+      align-self: start;
+      background-color: var(--clr-secondary);
+      color: var(--clr-light);
+      margin-top: 50px;
+      font-weight: 500;
+      padding: 0.75rem 1.75rem;
+      border-radius: 0.5rem;
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+      text-decoration: none;
+    }
+
+    .about__button:hover {
+      background-color: var(--clr-primary);
+      transform: translateY(-2px);
+    }
+    .about__skills-title {
+      font-family: var(--font-secondary);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--clr-dark);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .about__skills-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 1rem;
+      justify-items: center;
+    }
+    .about__skills-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      transition: transform var(--transition-fast);
+    }
+    .about__skills-img:hover {
+      transform: scale(1.1);
+    }
+    .about__data {
+      display: grid;     /* already there via your “grid” class */
+      row-gap: 1 rem;     /* ← adds extra space between the info block and the button */
+   }
+   .about__data > .about__button {
+      margin-top: 1rem;  /* or 50px, etc. */
+      padding: 0.5rem 1rem;   /* ← smaller padding makes the button narrower */
+      width: 140px;           /* ← force a fixed width */
+      text-align: center; 
+   }
+    /* ===================== FOOTER ===================== */
+    .footer {
+      background-color: var(--clr-dark);
+      color: var(--clr-light);
+      padding: 3rem 0;
+      margin-top: 3rem;
+    }
+    .footer__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .footer__logo {
+      font-family: var(--font-secondary);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--clr-light);
+    }
+    .footer__links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer__link {
+      font-size: 1rem;
+      color: var(--clr-light);
+      position: relative;
+      transition: color var(--transition-fast);
+    }
+    .footer__link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background-color: var(--clr-secondary);
+      transition: width var(--transition-fast);
+      border-radius: 1px;
+    }
+    .footer__link:hover {
+      color: var(--clr-secondary);
+    }
+    .footer__link:hover::after {
+      width: 100%;
+    }
+    .footer__social {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer__social-link {
+      font-size: 1.5rem;
+      color: var(--clr-light);
+      transition: transform var(--transition-fast), color var(--transition-fast);
+    }
+    .footer__social-link:hover {
+      transform: scale(1.1);
+      color: var(--clr-secondary);
+    }
+    .footer__copy {
+      font-size: 0.9rem;
+      color: var(--clr-muted);
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!--==================== HEADER ====================-->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Ketan Darekar</a>
+      <!-- Nav Menu -->
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="about.html" class="nav__link active">About Me</a>
+          </li>
+          <li class="nav__item">
+            <a href="work.html" class="nav__link">Portfolio</a>
+          </li>
+          <li class="nav__item">
+            <a href="contact.html" class="nav__link button">Contact Me</a>
+          </li>
+        </ul>
+        <!-- Close button -->
+        <div class="nav__close" id="nav-close">
+          <i class="ri-close-line"></i>
+        </div>
+      </div>
+      <!-- Toggle button -->
+      <div class="nav__toggle" id="nav-toggle">
+        <i class="ri-menu-line"></i>
+      </div>
+    </nav>
+  </header>
+
+  <!--==================== MAIN ====================-->
+  <main class="main">
+    <!--==================== ABOUT ====================-->
+    <section class="about section" id="about">
+      <div class="container">
+        <h2 class="section__title">My Personal<br>Information</h2>
+        <div class="about__container about__page container grid">
+          <div class="about__perfil perfil">
+            <div class="perfil__content">
+              <img
+                src="assets/img/myphoto1.jpg"
+                alt="Photo of Ketan Darekar"
+                class="perfil__img"
+                width="300"
+                height="300"
+              />
             </div>
-
-            <div class="nav__actions">
-               <!-- Theme button -->
-               <i class="ri-moon-line change-theme" id="theme-button"></i>
-
-               <!-- Toggle button -->
-               <div class="nav__toggle" id="nav-toggle">
-                  <i class="ri-apps-2-line"></i>
-               </div>
+          </div>
+          <div class="about__content grid">
+            <div class="about__data grid">
+              <div class="about__info grid">
+                <h1 class="about__name">Ketan Darekar</h1>
+                <h2 class="about__profession">Fullstack Developer</h2>
+                <p class="about__description">
+                  Currently pursuing a Master's in <b>Applied Computer Science</b>, I am a highly motivated and creative problem-solver with experience in team projects like <b>AI Chat App</b>, Hotel Management System, Parcel Service Application, and E-commerce Website.
+                </p>
+              </div>
+              <a href="contact.html" class="about__button">Contact Me</a>
             </div>
-         </nav>
-      </header>
-
-      <!--==================== MAIN ====================-->
-      <main class="main">
-         <!--==================== ABOUT ====================-->
-         <section class="about section">
-            <h2 class="section__title">
-               My Personal <br> 
-               Information               
-            </h2>
-
-            <div class="about__container about__page container grid">
-               <div class="about__perfil perfil">
-                  <div class="perfil__content">
-                     <img src="assets/img/myphoto1.jpg" alt="image" class="perfil__img">
-                  </div>
-               </div>
-
-               <div class="about__content grid">
-                  <div class="about__data grid">
-                     <div class="about__info grid">
-                        <h1 class="about__name">Ketan Darekar</h1>
-                        <h2 class="about__profession">Fullstack Developer</h2>
-                        <p class="about__description">
-                           Currently pursuing a Master's in <b>Applied Computer Science,</b> 
-                           I am a highly motivated and creative problem-solver with experience in team projects like <b>AI Chat App, </b>
-                           Hotel Management System, Parcel Service Application and E-commerce Website. 
-                          
-                        </p>
-                     </div>
-
-                     <a href="contact.html" class="about__button button">Contact Me</a>
-                  </div>
-
-                  <div class="about__skills">
-                     <h3 class="about__skills-title">My Skills Are</h3>
-
-                     <div class="about__skills-content grid">
-                        <img src="assets/img/about-html.svg" alt="image" class="about__skills-img">
-                        <img src="assets/img/about-css.svg" alt="image" class="about__skills-img">
-                        <img src="assets/img/about-javascript.svg" alt="image" class="about__skills-img">
-                        <img src="assets/img/C++.jpg" alt="image" class="about__skills-img">
-                        <img src="assets/img/python.jpg" alt="image" class="about__skills-img">
-                        <img src="assets/img/java.png" alt="image" class="about__skills-img">
-                        <img src="assets/img/about-react.svg" alt="image" class="about__skills-img">
-                        <img src="assets/img/about-next-js.svg" alt="image" class="about__skills-img">
-                        <img src="assets/img/node.png" alt="image" class="about__skills-img">
-                        <img src="assets/img/mysql.jpg" alt="image" class="about__skills-img">
-                        <img src="assets/img/about-git.svg" alt="image" class="about__skills-img">
-                        <img src="assets/img/about-github.svg" alt="image" class="about__skills-img">     
-                     </div>
-                  </div>
-               </div>
+            <div class="about__skills">
+              <h3 class="about__skills-title">My Skills Are</h3>
+              <div class="about__skills-content grid">
+                <img src="assets/img/about-html.svg" alt="HTML Logo" class="about__skills-img" width="80" height="80" />
+                <img src="assets/img/about-css.svg" alt="CSS Logo" class="about__skills-img" width="80" height="80" />
+                <img src="assets/img/about-javascript.svg" alt="JavaScript Logo" class="about__skills-img" width="80" height="80" />
+                <img src="assets/img/C++.jpg" alt="C++ Logo" class="about__skills-img" width="80" height="80" />
+                <img src="assets/img/python.jpg" alt="Python Logo" class="about__skills-img" width="80" height="80" />
+                <img src="assets/img/java.png" alt="Java Logo" class="about__skills-img" width="80" height="80" />
+                <img src="assets/img/about-react.svg" alt="React Logo" class="about__skills-img" width="80" height="80" />
+                <img src="assets/img/about-next-js.svg" alt="Next.js Logo" class="about__skills-img" width="80" height="80" />
+                <img src="assets/img/node.png" alt="Node.js Logo" class="about__skills-img" width="80" height="80" />
+                <img src="assets/img/mysql.jpg" alt="MySQL Logo" class="about__skills-img" width="80" height="80" />
+                <img src="assets/img/about-git.svg" alt="Git Logo" class="about__skills-img" width="80" height="80" />
+                <img src="assets/img/about-github.svg" alt="GitHub Logo" class="about__skills-img" width="80" height="80" />
+              </div>
             </div>
-         </section>
-      </main>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-      <!--==================== FOOTER ====================-->
-      <footer class="footer">
-         <div class="footer__container container grid">
-            <div class="footer__content grid">
-               <a href="index.html" class="footer__logo">Ketan Darekar</a>
+  <!--==================== FOOTER ====================-->
+  <footer class="footer">
+    <div class="footer__container container grid">
+      <div class="footer__content grid">
+        <a href="index.html" class="footer__logo">Ketan Darekar</a>
+        <ul class="footer__links">
+          <li><a href="about.html" class="footer__link">About Me</a></li>
+          <li><a href="work.html" class="footer__link">Portfolio</a></li>
+          <li><a href="contact.html" class="footer__link">Contact Me</a></li>
+        </ul>
+        <div class="footer__social">
+          <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a href="https://github.com/Ketan5757" target="_blank" class="footer__social-link">
+            <i class="ri-github-fill"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/ketan-darekar-6ba32a1b4/" target="_blank" class="footer__social-link">
+            <i class="ri-linkedin-box-fill"></i>
+          </a>
+        </div>
+      </div>
+      <span class="footer__copy">© 2025 Made by Ketan Darekar</span>
+    </div>
+  </footer>
 
-               <ul class="footer__links">
-                  <li>
-                     <a href="about.html" class="footer__link">About Me</a>
-                  </li>
+  <!--==================== SCRIPTS ====================-->
+  <script>
+    // Toggle mobile nav
+    const navToggle = document.getElementById('nav-toggle'),
+          navClose = document.getElementById('nav-close'),
+          navMenu = document.getElementById('nav-menu');
 
-                  <li>
-                     <a href="work.html" class="footer__link">Portfolio</a>
-                  </li>
-
-                  <li>
-                     <a href="contact.html" class="footer__link">Contact Me</a>
-                  </li>
-               </ul>
-
-               <div class="footer__social">
-                  <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
-                     <i class="ri-facebook-circle-fill"></i>
-                  </a>
-
-                  <a href="https://github.com/Ketan5757" target="_blank" class="footer__social-link">
-                     <i class="ri-github-fill"></i>
-                  </a>
-
-                  <a href="https://www.linkedin.com/in/ketan-darekar-6ba32a1b4//" target="_blank" class="footer__social-link">
-                     <i class="ri-linkedin-box-fill"></i>
-                  </a>
-               </div>
-            </div>
-
-            <span class="footer__copy">
-               &#169; Made by Ketan
-            </span>
-         </div>
-      </footer>
-
-      <!--=============== MAIN JS ===============-->
-      <script src="assets/js/main.js"></script>
-   </body>
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navMenu.classList.add('active');
+      });
+    }
+    if (navClose) {
+      navClose.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    }
+  </script>
+</body>
 </html>
+```
