@@ -1362,141 +1362,7 @@
       </div>
     </section>
 
-    <!-- ==================== CERTIFICATIONS SECTION ==================== -->
-<style>
-  /* ==================== Certifications Section CSS ==================== */
-  .certifications__container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2.5rem;
-    padding-top: 2.5rem;
-  }
-  .certifications__card {
-    background-color: var(--clr-light);
-    border-radius: 1rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    padding: 2rem;
-    text-align: center;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-  }
-  .certifications__card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-  }
-  .certifications__icon {
-    font-size: 2.5rem;
-    color: var(--clr-accent);
-    margin-bottom: 1rem;
-  }
-  .certifications__title {
-    font-family: var(--font-secondary);
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin-bottom: 0.6rem;
-    color: var(--clr-dark);
-  }
-  .certifications__description {
-    font-size: 0.95rem;
-    color: var(--clr-muted);
-    margin-bottom: 1rem;
-    line-height: 1.5;
-  }
-  .certifications__button {
-    background-color: var(--clr-secondary);
-    color: var(--clr-light);
-    font-weight: 500;
-    padding: 0.6rem 1.5rem;
-    border-radius: 0.5rem;
-    transition: background-color var(--transition-fast), transform var(--transition-fast);
-  }
-  .certifications__button:hover {
-    background-color: var(--clr-primary);
-    transform: translateY(-2px);
-  }
-
-  /* ==================== Modal Overlay ==================== */
-  .certifications__modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(47, 54, 64, 0.8);
-    display: none; /* hidden by default */
-    align-items: center;
-    justify-content: center;
-    z-index: 9998; /* just below header (z-index: 9999) */
-    padding: 1rem;
-  }
-  .certifications__modal-content {
-    background: var(--clr-light);
-    border-radius: 1rem;
-    max-width: 500px;
-    width: 100%;
-    padding: 2rem 1.5rem 1.5rem 1.5rem;
-    position: relative;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    animation: fadeInDown 0.4s ease-out;
-  }
-  @keyframes fadeInDown {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* ==================== Close (“×”) Button ==================== */
-  .certifications__modal-close {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--clr-dark);
-    cursor: pointer;
-    transition: color var(--transition-fast);
-    line-height: 1;
-  }
-  .certifications__modal-close:hover {
-    color: var(--clr-secondary);
-  }
-
-  /* ==================== Modal Title & List ==================== */
-  .certifications__modal-title {
-    font-family: var(--font-secondary);
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--clr-secondary);
-  }
-  .certifications__modal-list {
-    list-style: disc;
-    padding-left: 1.5rem;
-    color: var(--clr-muted);
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-  .certifications__download {
-    display: inline-block;
-    background-color: var(--clr-accent);
-    color: var(--clr-light);
-    font-weight: 500;
-    padding: 0.6rem 1.5rem;
-    border-radius: 0.5rem;
-    transition: background-color var(--transition-fast);
-  }
-  .certifications__download:hover {
-    background-color: var(--clr-secondary);
-  }
-</style>
-
+    <!--==================== CERTIFICATIONS ====================-->
 <section class="certifications section" id="certifications">
   <div class="container">
     <h2 class="section__title">Certifications</h2>
@@ -1550,10 +1416,11 @@
   </div>
 </section>
 
-<!-- ==================== MODALS (outside of <main>) ==================== -->
+<!--==================== MODALS (placed directly under <body>) ====================-->
 <!-- Python Full Stack Modal -->
 <div class="certifications__modal" id="modal-python">
-  <div class="certifications__modal-content">
+  <div class="certifications__modal-content animate__animated animate__fadeInDown">
+    <!-- X button to close -->
     <button
       class="certifications__modal-close"
       onclick="closeModal('modal-python')"
@@ -1580,7 +1447,8 @@
 
 <!-- Azure Fundamentals Modal -->
 <div class="certifications__modal" id="modal-azure">
-  <div class="certifications__modal-content">
+  <div class="certifications__modal-content animate__animated animate__fadeInDown">
+    <!-- X button to close -->
     <button
       class="certifications__modal-close"
       onclick="closeModal('modal-azure')"
@@ -1607,7 +1475,8 @@
 
 <!-- Machine Learning Modal -->
 <div class="certifications__modal" id="modal-ml">
-  <div class="certifications__modal-content">
+  <div class="certifications__modal-content animate__animated animate__fadeInDown">
+    <!-- X button to close -->
     <button
       class="certifications__modal-close"
       onclick="closeModal('modal-ml')"
@@ -1632,7 +1501,7 @@
 </div>
 
 <script>
-  // JavaScript to Open/Close Modals
+  // JavaScript to open/close the modals by toggling 'display'
   function openModal(id) {
     const modal = document.getElementById(id);
     if (modal) {
