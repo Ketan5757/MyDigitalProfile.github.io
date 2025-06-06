@@ -267,7 +267,7 @@
       color: var(--clr-light);
     }
 
-    /* Noise overlay (same as before) */
+    /* Noise overlay */
     .noise-overlay {
       position: absolute;
       top: 0;
@@ -279,7 +279,7 @@
       z-index: 0;
     }
 
-    /* Animated blob shape behind content — lighten its gold slightly */
+    /* Animated blob shape behind content */
     .blob {
       position: absolute;
       top: -150px;
@@ -306,7 +306,7 @@
       }
     }
 
-    /* Subtle geometric overlay rotating (unchanged) */
+    /* Subtle geometric overlay rotating */
     .home::before {
       content: "";
       position: absolute;
@@ -934,7 +934,7 @@
       transition: background-color var(--transition-fast), transform var(--transition-fast);
     }
 
-    .contact__form-btn .button:hover {
+    .contact__form-btn .button:hover {  
       background-color: var(--clr-primary);
       transform: translateY(-2px);
     }
@@ -1363,290 +1363,285 @@
     </section>
 
     <!--==================== CERTIFICATIONS ====================-->
-<section class="certifications section" id="certifications">
-  <div class="container">
-    <h2 class="section__title">Certifications</h2>
-    <span class="section__subtitle">Verified Credentials</span>
-    <div class="certifications__container">
-      <!-- Python Full Stack -->
-      <article class="certifications__card">
-        <i class="fab fa-python certifications__icon" aria-hidden="true"></i>
-        <h3 class="certifications__title">Python Full Stack</h3>
-        <p class="certifications__description">
-          Intensive 6-month course from CJC Institute — built dynamic web pages using Python & Django.
-        </p>
-        <button
-          class="certifications__button button"
-          onclick="openModal('modal-python')"
-        >
-          Know More
-        </button>
-      </article>
-
-      <!-- Azure Fundamentals -->
-      <article class="certifications__card">
-        <i class="fas fa-cloud certifications__icon" aria-hidden="true"></i>
-        <h3 class="certifications__title">Azure Fundamentals</h3>
-        <p class="certifications__description">
-          “Azure Fundamentals” Microsoft Certified — foundation in Azure services & cloud concepts.
-        </p>
-        <button
-          class="certifications__button button"
-          onclick="openModal('modal-azure')"
-        >
-          Know More
-        </button>
-      </article>
-
-      <!-- Machine Learning -->
-      <article class="certifications__card">
-        <i class="fas fa-brain certifications__icon" aria-hidden="true"></i>
-        <h3 class="certifications__title">Machine Learning</h3>
-        <p class="certifications__description">
-          Completed a 6-week Internshala course covering algorithms, preprocessing & model evaluation.
-        </p>
-        <button
-          class="certifications__button button"
-          onclick="openModal('modal-ml')"
-        >
-          Know More
-        </button>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!--==================== MODALS (placed directly under <body>) ====================-->
-<!-- Python Full Stack Modal -->
-<div class="certifications__modal" id="modal-python">
-  <div class="certifications__modal-content animate__animated animate__fadeInDown">
-    <!-- X button to close -->
-    <button
-      class="certifications__modal-close"
-      onclick="closeModal('modal-python')"
-      aria-label="Close modal"
-    >
-      &times;
-    </button>
-    <h3 class="certifications__modal-title">CJC Certified</h3>
-    <ul class="certifications__modal-list">
-      <li>Mastered Python for Web Development</li>
-      <li>Developed with Django Framework</li>
-      <li>Utilized MongoDB for Data Management</li>
-      <li>Enhanced UIs with JavaScript, HTML & CSS</li>
-    </ul>
-    <a
-      href="assets/pdf/python certificate.pdf"
-      download
-      class="certifications__download button"
-    >
-      Download Certificate
-    </a>
-  </div>
-</div>
-
-<!-- Azure Fundamentals Modal -->
-<div class="certifications__modal" id="modal-azure">
-  <div class="certifications__modal-content animate__animated animate__fadeInDown">
-    <!-- X button to close -->
-    <button
-      class="certifications__modal-close"
-      onclick="closeModal('modal-azure')"
-      aria-label="Close modal"
-    >
-      &times;
-    </button>
-    <h3 class="certifications__modal-title">Microsoft Certified</h3>
-    <ul class="certifications__modal-list">
-      <li>Learned Core Azure Concepts</li>
-      <li>Explored Azure Resource Management</li>
-      <li>Developed Cloud Security Knowledge</li>
-      <li>Hands-On Azure Experience</li>
-    </ul>
-    <a
-      href="assets/pdf/Microsoft Azure.pdf"
-      download
-      class="certifications__download button"
-    >
-      Download Certificate
-    </a>
-  </div>
-</div>
-
-<!-- Machine Learning Modal -->
-<div class="certifications__modal" id="modal-ml">
-  <div class="certifications__modal-content animate__animated animate__fadeInDown">
-    <!-- X button to close -->
-    <button
-      class="certifications__modal-close"
-      onclick="closeModal('modal-ml')"
-      aria-label="Close modal"
-    >
-      &times;
-    </button>
-    <h3 class="certifications__modal-title">Internshala Certified</h3>
-    <ul class="certifications__modal-list">
-      <li>Machine Learning Algorithms: Linear Regression, Decision Trees</li>
-      <li>Data Preprocessing: Cleaning & Preparing Data</li>
-      <li>Model Evaluation: Cross-Validation & Metrics</li>
-    </ul>
-    <a
-      href="assets/pdf/Machine Learning.pdf"
-      download
-      class="certifications__download button"
-    >
-      Download Certificate
-    </a>
-  </div>
-</div>
-
-<script>
-  // JavaScript to open/close the modals by toggling 'display'
-  function openModal(id) {
-    const modal = document.getElementById(id);
-    if (modal) {
-      modal.style.display = 'flex';
-    }
-  }
-  function closeModal(id) {
-    const modal = document.getElementById(id);
-    if (modal) {
-      modal.style.display = 'none';
-    }
-  }
-</script>
-
-  <!--==================== LANGUAGES ====================-->
-  <section class="languages section" id="languages">
-    <div class="container">
-      <h2 class="section__title">My Language Journey</h2>
-      <span class="section__subtitle">Fluency & Proficiency</span>
-      <div class="languages__container">
-        <div class="languages__cards">
-          <!-- English -->
-          <article class="languages__card">
-            <div class="languages__border">
-              <img
-                src="assets/img/English.jpeg"
-                alt="English"
-                class="languages__img"
-                width="80"
-                height="80"
-              />
-            </div>
-            <h3 class="languages__name">English</h3>
-            <p class="languages__level">
-              Proficiency: <strong>C1</strong><br />
-              Fluent in professional communication, formal writing, and complex comprehension.
+    <section class="certifications section" id="certifications">
+      <div class="container">
+        <h2 class="section__title">Certifications</h2>
+        <span class="section__subtitle">Verified Credentials</span>
+        <div class="certifications__container">
+          <!-- Python Full Stack -->
+          <article class="certifications__card">
+            <i class="fab fa-python certifications__icon" aria-hidden="true"></i>
+            <h3 class="certifications__title">Python Full Stack</h3>
+            <p class="certifications__description">
+              Intensive 6-month course from CJC Institute — built dynamic web pages using Python & Django.
             </p>
+            <button
+              class="certifications__button button"
+              onclick="openModal('modal-python')"
+            >
+              Know More
+            </button>
           </article>
 
-          <!-- German -->
-          <article class="languages__card">
-            <div class="languages__border">
-              <img
-                src="assets/img/german.png"
-                alt="German"
-                class="languages__img"
-                width="80"
-                height="80"
-              />
-            </div>
-            <h3 class="languages__name">German</h3>
-            <p class="languages__level">
-              Proficiency: <strong>B2</strong><br />
-              Confident in conversations, expressing opinions, and engaging in discussions.
+          <!-- Azure Fundamentals -->
+          <article class="certifications__card">
+            <i class="fas fa-cloud certifications__icon" aria-hidden="true"></i>
+            <h3 class="certifications__title">Azure Fundamentals</h3>
+            <p class="certifications__description">
+              “Azure Fundamentals” Microsoft Certified — foundation in Azure services & cloud concepts.
             </p>
+            <button
+              class="certifications__button button"
+              onclick="openModal('modal-azure')"
+            >
+              Know More
+            </button>
           </article>
 
-          <!-- Hindi -->
-          <article class="languages__card">
-            <div class="languages__border">
-              <img
-                src="assets/img/Hindi.png"
-                alt="Hindi"
-                class="languages__img"
-                width="80"
-                height="80"
-              />
-            </div>
-            <h3 class="languages__name">Marathi</h3>
-            <p class="languages__level">
-              Native language—fully proficient in speaking, reading, writing, with formal & casual fluency.
+          <!-- Machine Learning -->
+          <article class="certifications__card">
+            <i class="fas fa-brain certifications__icon" aria-hidden="true"></i>
+            <h3 class="certifications__title">Machine Learning</h3>
+            <p class="certifications__description">
+              Completed a 6-week Internshala course covering algorithms, preprocessing & model evaluation.
             </p>
+            <button
+              class="certifications__button button"
+              onclick="openModal('modal-ml')"
+            >
+              Know More
+            </button>
           </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!--==================== CONTACT ====================-->
-  <section class="contact section" id="contact">
-    <div class="container">
-      <h2 class="section__title">Get in Touch</h2>
-      <span class="section__subtitle">I’m just a click away</span>
-      <div class="contact__container">
-        <div class="contact__information">
-          <h3 class="contact__title">Let’s Talk</h3>
-          <p class="contact__text">
-            Feel free to reach out for project inquiries, collaborations, or just a friendly hello.
-          </p>
-          <ul class="contact__details">
-            <li>
-              <i class="ri-mail-fill contact__icon"></i>ketan.darekar99@gmail.com
-            </li>
-            <li>
-              <i class="ri-phone-fill contact__icon"></i>+49 17667708933
-            </li>
-            <li>
-              <i class="ri-map-pin-fill contact__icon"></i>Mannheim, Germany
-            </li>
-          </ul>
-        </div>
-        <div class="contact__form">
-          <form action="#" class="contact__form-grid">
-            <div class="contact__form-group">
-              <label for="name" class="contact__label">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                class="contact__input"
-                placeholder="Your Name"
-                required
-              />
-            </div>
-            <div class="contact__form-group">
-              <label for="email" class="contact__label">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                class="contact__input"
-                placeholder="Your Email"
-                required
-              />
-            </div>
-            <div class="contact__form-group contact__form-full">
-              <label for="message" class="contact__label">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                class="contact__input"
-                rows="5"
-                placeholder="Your Message"
-                required
-              ></textarea>
-            </div>
-            <div class="contact__form-btn">
-              <button type="submit" class="button">Send Message</button>
-            </div>
-          </form>
-        </div>
+    <!--==================== MODALS ====================-->
+    <div class="certifications__modal" id="modal-python">
+      <div class="certifications__modal-content animate__animated animate__fadeInDown">
+        <button
+          class="certifications__modal-close"
+          onclick="closeModal('modal-python')"
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+        <h3 class="certifications__modal-title">CJC Certified</h3>
+        <ul class="certifications__modal-list">
+          <li>Mastered Python for Web Development</li>
+          <li>Developed with Django Framework</li>
+          <li>Utilized MongoDB for Data Management</li>
+          <li>Enhanced UIs with JavaScript, HTML & CSS</li>
+        </ul>
+        <a
+          href="assets/pdf/python certificate.pdf"
+          download
+          class="certifications__download button"
+        >
+          Download Certificate
+        </a>
       </div>
     </div>
-  </section>
-  
+
+    <div class="certifications__modal" id="modal-azure">
+      <div class="certifications__modal-content animate__animated animate__fadeInDown">
+        <button
+          class="certifications__modal-close"
+          onclick="closeModal('modal-azure')"
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+        <h3 class="certifications__modal-title">Microsoft Certified</h3>
+        <ul class="certifications__modal-list">
+          <li>Learned Core Azure Concepts</li>
+          <li>Explored Azure Resource Management</li>
+          <li>Developed Cloud Security Knowledge</li>
+          <li>Hands-On Azure Experience</li>
+        </ul>
+        <a
+          href="assets/pdf/Microsoft Azure.pdf"
+          download
+          class="certifications__download button"
+        >
+          Download Certificate
+        </a>
+      </div>
+    </div>
+
+    <div class="certifications__modal" id="modal-ml">
+      <div class="certifications__modal-content animate__animated animate__fadeInDown">
+        <button
+          class="certifications__modal-close"
+          onclick="closeModal('modal-ml')"
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+        <h3 class="certifications__modal-title">Internshala Certified</h3>
+        <ul class="certifications__modal-list">
+          <li>Machine Learning Algorithms: Linear Regression, Decision Trees</li>
+          <li>Data Preprocessing: Cleaning & Preparing Data</li>
+          <li>Model Evaluation: Cross-Validation & Metrics</li>
+        </ul>
+        <a
+          href="assets/pdf/Machine Learning.pdf"
+          download
+          class="certifications__download button"
+        >
+          Download Certificate
+        </a>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript to open/close the modals
+      function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.style.display = 'flex';
+        }
+      }
+      function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.style.display = 'none';
+        }
+      }
+    </script>
+
+    <!--==================== LANGUAGES ====================-->
+    <section class="languages section" id="languages">
+      <div class="container">
+        <h2 class="section__title">My Language Journey</h2>
+        <span class="section__subtitle">Fluency & Proficiency</span>
+        <div class="languages__container">
+          <div class="languages__cards">
+            <!-- English -->
+            <article class="languages__card">
+              <div class="languages__border">
+                <img
+                  src="assets/img/English.jpeg"
+                  alt="English"
+                  class="languages__img"
+                  width="80"
+                  height="80"
+                />
+              </div>
+              <h3 class="languages__name">English</h3>
+              <p class="languages__level">
+                Proficiency: <strong>C1</strong><br />
+                Fluent in professional communication, formal writing, and complex comprehension.
+              </p>
+            </article>
+
+            <!-- German -->
+            <article class="languages__card">
+              <div class="languages__border">
+                <img
+                  src="assets/img/german.png"
+                  alt="German"
+                  class="languages__img"
+                  width="80"
+                  height="80"
+                />
+              </div>
+              <h3 class="languages__name">German</h3>
+              <p class="languages__level">
+                Proficiency: <strong>B2</strong><br />
+                Confident in conversations, expressing opinions, and engaging in discussions.
+              </p>
+            </article>
+
+            <!-- Marathi -->
+            <article class="languages__card">
+              <div class="languages__border">
+                <img
+                  src="assets/img/Hindi.png"
+                  alt="Marathi"
+                  class="languages__img"
+                  width="80"
+                  height="80"
+                />
+              </div>
+              <h3 class="languages__name">Marathi</h3>
+              <p class="languages__level">
+                Native language—fully proficient in speaking, reading, writing, with formal & casual fluency.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== CONTACT (WITH EMAILJS) ====================-->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <h2 class="section__title">Get in Touch</h2>
+        <span class="section__subtitle">I’m just a click away</span>
+        <div class="contact__container">
+          <div class="contact__information">
+            <h3 class="contact__title">Let’s Talk</h3>
+            <p class="contact__text">
+              Feel free to reach out for project inquiries, collaborations, or just a friendly hello.
+            </p>
+            <ul class="contact__details">
+              <li>
+                <i class="ri-mail-fill contact__icon"></i>ketan.darekar99@gmail.com
+              </li>
+              <li>
+                <i class="ri-phone-fill contact__icon"></i>+49 17667708933
+              </li>
+              <li>
+                <i class="ri-map-pin-fill contact__icon"></i>Mannheim, Germany
+              </li>
+            </ul>
+          </div>
+          <div class="contact__form">
+            <form id="contact-form" class="contact__form-grid">
+              <div class="contact__form-group">
+                <label for="name" class="contact__label">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="user_name"
+                  class="contact__input"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="contact__form-group">
+                <label for="email" class="contact__label">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="user_email"
+                  class="contact__input"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="contact__form-group contact__form-full">
+                <label for="message" class="contact__label">Message</label>
+                <textarea
+                  id="message"
+                  name="user_message"
+                  class="contact__input"
+                  rows="5"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <div class="contact__form-btn">
+                <button type="submit" class="button contact__send">Send Message</button>
+              </div>
+              <p class="contact__message" id="contact-message"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!--==================== FOOTER ====================-->
   <footer class="footer">
@@ -1707,29 +1702,63 @@
         navMenu.classList.remove('active');
       });
     }
-
-    // Modal open/close functions
-    function openModal(id) {
-      const modal = document.getElementById(id);
-      if (modal) {
-        modal.style.display = 'flex';
-      }
-    }
-    function closeModal(id) {
-      const modal = document.getElementById(id);
-      if (modal) {
-        modal.style.display = 'none';
-      }
-    }
   </script>
-  
-    <!--=============== EMAIL JS ===============-->
+
+  <!--=============== EMAIL JS (SDK) ===============-->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
+  <!--=============== CONTACT JAVASCRIPT ===============-->
+  <script>
+    // Initialize EmailJS with your public key (get this from emailjs.com → Integration → Public Key)
+    emailjs.init('bVyu5I6XfxXFYdj24');
 
-  <!-- Remixicon CDN -->
+    // Grab the form element by its ID
+    const form = document.getElementById('contact-form');
+    const feedback = document.getElementById('contact-message');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent default form submission
+
+      // Send the form via EmailJS
+       emailjs
+      .sendForm(
+        'service_vfk8ybc',   
+        'service_vfk8ybc',     
+        this                 
+      .then(
+        (result) => {
+          console.log('EmailJS SUCCESS:', result.text);
+
+          
+          feedback.innerHTML = `
+            <span style="color: var(--clr-secondary); font-weight: 500; display: inline-flex; align-items: center;">
+              <i class="ri-checkbox-circle-fill" style="margin-right: 0.5rem; color: var(--clr-secondary); font-size: 1.25rem;"></i>
+              Message sent!
+            </span>
+          `;
+
+          form.reset();
+        },
+
+        (error) => {
+          console.error('EmailJS FAILED:', error);
+
+          // Show an error message in red below the form:
+          feedback.innerHTML = `
+            <span style="color: #e74c3c; font-weight: 500; display: inline-flex; align-items: center;">
+              <i class="ri-close-circle-fill" style="margin-right: 0.5rem; color: #e74c3c; font-size: 1.25rem;"></i>
+              Oops! Something went wrong. Please try again later.
+            </span>
+          `;
+        }
+      )
+      );
+  });
+</script>
+
+  <!--=============== REMIXICON CDN ===============-->
   <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.js"
+    src="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css"
     integrity="sha512-BhL7G+5mwrnbHps+XYHeYJDF5OK4hc2qTRZ5BWmLGnSZjyjcwWfYyLvg79P5xTFjTcYfuc2+IICDcFMpQYf/vw=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
