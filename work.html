@@ -1,173 +1,607 @@
 <!DOCTYPE html>
-   <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <!--=============== FAVICON ===============-->
-      <link rel="shortcut icon" href="assets/img/K.webp" type="image/x-icon">
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-      <!--=============== REMIXICONS ===============-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+  <!-- Animate.css for smooth fade-in animations -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 
-      <!--=============== CSS ===============-->
-      <link rel="stylesheet" href="assets/css/styles.css">
+  <!-- Remixicon CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css"
+    integrity="sha512-BhL7G+5mwrnbHps+XYHeYJDF5OK4hc2qTRZ5BWmLGnSZjyjcwWfYyLvg79P5xTFjTcYfuc2+IICDcFMpQYf/vw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
-      <title>Portfolio- Responsive portfolio website - Ketan Darekar</title>
-   </head>
-   <body>
-      <!--==================== HEADER ====================-->
-      <header class="header header-pages" id="header">
-         <nav class="nav container">
-            <a href="index.html" class="nav__logo">Ketan Darekar</a>
+  <title>Portfolio – Ketan Darekar</title>
 
-            <div class="nav__menu" id="nav-menu">
-               <ul class="nav__list">
-                  <li class="nav__item">
-                     <a href="index.html" class="nav__link">Home</a>
-                  </li>
+  <style>
+    /* ===================== GLOBAL RESET & VARIABLES ===================== */
+    :root {
+      /* Refined Professional Palette */
+      --clr-primary: #0a3d62;        /* deep navy */
+      --clr-secondary: #22a6b3;      /* teal */
+      --clr-accent: #f9ca24;         /* gold */
+      --clr-bg: #f8f9fa;             /* light gray */
+      --clr-light: #ffffff;
+      --clr-dark: #2f3640;           /* charcoal */
+      --clr-muted: #636e72;          /* slate gray */
+      --clr-soft: #dfe6e9;           /* pale gray */
+      --font-primary: 'Inter', sans-serif;
+      --font-secondary: 'Poppins', sans-serif;
+      --transition-fast: 0.25s ease;
+    }
 
-                  <li class="nav__item">
-                     <a href="about.html" class="nav__link">About Me</a>
-                  </li>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-                  <li class="nav__item">
-                     <a href="work.html" class="nav__link">Portfolio</a>
-                  </li>
+    html {
+      scroll-behavior: smooth;
+    }
 
-                  <li class="nav__item">
-                     <a href="contact.html" class="button">Contact Me</a>
-                  </li>
-               </ul>
+    body {
+      font-family: var(--font-primary);
+      background-color: var(--clr-bg);
+      color: var(--clr-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-               <!-- Close button -->
-               <div class="nav__close" id="nav-close">
-                  <i class="ri-close-line"></i>
-               </div>
-            </div>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-            <div class="nav__actions">
-               <!-- Theme button -->
-               <i class="ri-moon-line change-theme" id="theme-button"></i>
+    ul {
+      list-style: none;
+    }
 
-               <!-- Toggle button -->
-               <div class="nav__toggle" id="nav-toggle">
-                  <i class="ri-apps-2-line"></i>
-               </div>
-            </div>
-         </nav>
-      </header>
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
 
-      <!--==================== MAIN ====================-->
-      <main class="main">
-         <!--==================== WORK ====================-->
-<section class="work section">
-   <h2 class="section__title">
-       My Most <br>
-       Recent Projects               
-   </h2>
+    .container {
+      width: min(100% - 2rem, 1200px);
+      margin-inline: auto;
+      padding: 0 1rem;
+    }
 
-   <div class="work__container work__page container grid">
-       <article class="work__card">
-           <a href="ai-chat.html" class="work__link">
-               <img src="assets/img/chatbot.jpeg" alt="AI Chat Application" class="work__img">
-               <i class="ri-arrow-right-circle-line work__icon"></i>
-           </a>
-           <h2 class="work__title">AI Chat Application</h2>
-           <span class="work__subtitle">Website Design</span>
-       </article>
+    .section {
+      padding: 5rem 0;
+    }
 
-       <article class="work__card">
-           <a href="ecommerce.html" class="work__link">
-               <img src="assets/img/eCommerce.jpg" alt="Ecommerce Website" class="work__img">
-               <i class="ri-arrow-right-circle-line work__icon"></i>
-           </a>
-           <h2 class="work__title">Ecommerce Website</h2>
-           <span class="work__subtitle">Website Design</span>
-       </article>
+    .section__title {
+      font-family: var(--font-secondary);
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--clr-dark);
+      text-align: center;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
 
-       <article class="work__card">
-           <a href="parcel.html" class="work__link">
-               <img src="assets/img/parcel.webp" alt="Parcel Service App" class="work__img">
-               <i class="ri-arrow-right-circle-line work__icon"></i>
-           </a>
-           <h2 class="work__title">Parcel Service App</h2>
-           <span class="work__subtitle">Website Design</span>
-       </article>
+    .section__title::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background-color: var(--clr-secondary);
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
 
-       <article class="work__card">
-           <a href="image-classification.html" class="work__link">
-               <img src="assets/img/catdog.jpeg" alt="Image Classification using AutoML and Custom Training" class="work__img">
-               <i class="ri-arrow-right-circle-line work__icon"></i>
-           </a>
-           <h2 class="work__title">Image Classification using AutoML and Custom Training</h2>
-           <span class="work__subtitle">Google Cloud</span>
-       </article>
+    .section__subtitle {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--clr-muted);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
 
-       <article class="work__card">
-           <a href="hotel-management.html" class="work__link">
-               <img src="assets/img/hotel.jpg" alt="Hotel Management System" class="work__img">
-               <i class="ri-arrow-right-circle-line work__icon"></i>
-           </a>
-           <h2 class="work__title">Hotel Management System</h2>
-           <span class="work__subtitle">Website Design</span>
-       </article>
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
 
-       <article class="work__card">
-           <a href="gym-management.html" class="work__link">
-               <img src="assets/img/gym.jpg" alt="Gym Management System" class="work__img">
-               <i class="ri-arrow-right-circle-line work__icon"></i>
-           </a>
-           <h2 class="work__title">Gym Management System</h2>
-           <span class="work__subtitle">UI/UX</span>
-       </article>
-   </div>
-</section>
+    /* ===================== HEADER & NAV ===================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--clr-light);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      z-index: 9999; /* Very high so header stays on top of everything */
+      transition: background-color var(--transition-fast);
+    }
 
-      </main>
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.5rem;
+    }
 
-      <!--==================== FOOTER ====================-->
-      <footer class="footer">
-         <div class="footer__container container grid">
-            <div class="footer__content grid">
-               <a href="index.html" class="footer__logo">Ketan Darekar</a>
+    .nav__logo {
+      font-family: var(--font-secondary);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--clr-primary);
+      transition: color var(--transition-fast);
+    }
 
-               <ul class="footer__links">
-                  <li>
-                     <a href="about.html" class="footer__link">About Me</a>
-                  </li>
+    .nav__menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
 
-                  <li>
-                     <a href="work.html" class="footer__link">Portfolio</a>
-                  </li>
+    .nav__list {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
 
-                  <li>
-                     <a href="contact.html" class="footer__link">Contact Me</a>
-                  </li>
-               </ul>
+    .nav__item {
+      position: relative;
+    }
 
-               <div class="footer__social">
-                  <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
-                     <i class="ri-facebook-circle-fill"></i>
-                  </a>
+    .nav__link {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--clr-dark);
+      position: relative;
+      padding: 0.25rem 0;
+      transition: color var(--transition-fast);
+    }
 
-                  <a href="https://github.com/Ketan5757" target="_blank" class="footer__social-link">
-                     <i class="ri-github-fill"></i>
-                  </a>
+    .nav__link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background-color: var(--clr-primary);
+      transition: width var(--transition-fast);
+      border-radius: 1px;
+    }
 
-                  <a href="https://www.linkedin.com/in/ketan-darekar-6ba32a1b4//" target="_blank" class="footer__social-link">
-                     <i class="ri-linkedin-box-fill"></i>
-                  </a>
-               </div>
-            </div>
+    .nav__link:hover::after,
+    .nav__link.active::after {
+      width: 100%;
+    }
 
-            <span class="footer__copy">
-               &#169; Ketan Darekar
-            </span>
-         </div>
-      </footer>
+    .nav__link:hover {
+      color: var(--clr-primary);
+    }
 
-      <!--=============== MAIN JS ===============-->
-      <script src="assets/js/main.js"></script>
-   </body>
+    .nav__link.button {
+      background-color: var(--clr-secondary);
+      color: var(--clr-light);
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav__link.button:hover {
+      background-color: var(--clr-accent);
+      transform: translateY(-2px);
+    }
+
+    .nav__toggle,
+    .nav__close {
+      display: none;
+      background: none;
+      font-size: 1.5rem;
+      color: var(--clr-primary);
+      transition: color var(--transition-fast);
+      z-index: 10000; /* ensure toggle button also sits above modals */
+    }
+
+    .nav__toggle:hover,
+    .nav__close:hover {
+      color: var(--clr-secondary);
+    }
+
+    /* Responsive Nav */
+    @media (max-width: 768px) {
+      .nav__toggle {
+        display: block;
+      }
+      .nav__menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 260px;
+        height: 100vh;
+        background-color: var(--clr-light);
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+        gap: 1.5rem;
+        transition: right var(--transition-fast);
+        z-index: 9999; /* match header so it sits below header but above content */
+      }
+      .nav__menu.active {
+        right: 0;
+      }
+      .nav__close {
+        display: block;
+        align-self: flex-end;
+      }
+      .nav__list {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+
+    /* ===================== WORK (Projects) SECTION ===================== */
+    .work {
+      /* reuse .projects.section style, but with .work identifiers */
+      padding: 5rem 0;
+    }
+
+    .work__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      padding-top: 2.5rem;
+    }
+
+    .work__card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      background-color: var(--clr-light);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .work__card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .work__link {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+    }
+
+    .work__img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition-fast);
+    }
+
+    .work__link:hover .work__img {
+      transform: scale(1.05);
+    }
+
+    .work__icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: var(--clr-light);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+
+    .work__link:hover .work__icon {
+      opacity: 1;
+    }
+
+    .work__title {
+      font-family: var(--font-secondary);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 1rem 1.25rem 0.25rem;
+      color: var(--clr-dark);
+      line-height: 1.4;
+    }
+
+    .work__subtitle {
+      font-size: 0.9rem;
+      color: var(--clr-muted);
+      margin: 0 1.25rem 1.25rem;
+      display: block;
+    }
+
+    /* ===================== FOOTER ===================== */
+    .footer {
+      background-color: var(--clr-dark);
+      color: var(--clr-light);
+      padding: 3rem 0;
+      margin-top: 3rem;
+    }
+
+    .footer__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer__logo {
+      font-family: var(--font-secondary);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--clr-light);
+    }
+
+    .footer__links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer__link {
+      font-size: 1rem;
+      color: var(--clr-light);
+      position: relative;
+      transition: color var(--transition-fast);
+    }
+
+    .footer__link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background-color: var(--clr-secondary);
+      transition: width var(--transition-fast);
+      border-radius: 1px;
+    }
+
+    .footer__link:hover {
+      color: var(--clr-secondary);
+    }
+
+    .footer__link:hover::after {
+      width: 100%;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer__social-link {
+      font-size: 1.5rem;
+      color: var(--clr-light);
+      transition: transform var(--transition-fast), color var(--transition-fast);
+    }
+
+    .footer__social-link:hover {
+      transform: scale(1.1);
+      color: var(--clr-secondary);
+    }
+
+    .footer__copy {
+      font-size: 0.9rem;
+      color: var(--clr-muted);
+      margin-top: 1rem;
+    }
+
+    /* ===================== MOBILE NAV SCRIPT STYLING ===================== */
+    /* (No extra CSS needed beyond what’s above for nav toggle/close) */
+  </style>
+</head>
+<body>
+  <!--==================== HEADER ====================-->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Ketan Darekar</a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Open menu">
+        <i class="ri-menu-line"></i>
+      </button>
+      <div class="nav__menu" id="nav-menu">
+        <button class="nav__close" id="nav-close" aria-label="Close menu">
+          <i class="ri-close-line"></i>
+        </button>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="about.html" class="nav__link">About Me</a>
+          </li>
+          <li class="nav__item">
+            <a href="work.html" class="nav__link active">Portfolio</a>
+          </li>
+          <li class="nav__item">
+            <a href="contact.html" class="nav__link button">Contact Me</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!--==================== MAIN ====================-->
+  <main class="main">
+    <!--==================== WORK (Portfolio) SECTION ====================-->
+    <section class="work section" id="projects">
+      <div class="container">
+        <h2 class="section__title">My Most <br />Recent Projects</h2>
+        <span class="section__subtitle">Some work I’m proud of</span>
+        <div class="work__container">
+          <!-- Project 1 -->
+          <article class="work__card">
+            <a href="ai-chat.html" class="work__link">
+              <img
+                src="assets/img/chatbot.jpeg"
+                alt="AI Chat Application"
+                class="work__img"
+              />
+              <span class="work__icon">
+                <i class="ri-arrow-right-circle-line"></i>
+              </span>
+            </a>
+            <h3 class="work__title">AI-Powered Chatbot & Assistance Platform</h3>
+            <p class="work__subtitle">Website Design</p>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="work__card">
+            <a href="ecommerce.html" class="work__link">
+              <img
+                src="assets/img/eCommerce.jpg"
+                alt="E-commerce Website"
+                class="work__img"
+              />
+              <span class="work__icon">
+                <i class="ri-arrow-right-circle-line"></i>
+              </span>
+            </a>
+            <h3 class="work__title">E-commerce Website</h3>
+            <p class="work__subtitle">Website Design</p>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="work__card">
+            <a href="parcel.html" class="work__link">
+              <img
+                src="assets/img/parcel.webp"
+                alt="Parcel Service App"
+                class="work__img"
+              />
+              <span class="work__icon">
+                <i class="ri-arrow-right-circle-line"></i>
+              </span>
+            </a>
+            <h3 class="work__title">Parcel Service App</h3>
+            <p class="work__subtitle">Web Application</p>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="work__card">
+            <a href="image-classification.html" class="work__link">
+              <img
+                src="assets/img/catdog.jpeg"
+                alt="Image Classification Project"
+                class="work__img"
+              />
+              <span class="work__icon">
+                <i class="ri-arrow-right-circle-line"></i>
+              </span>
+            </a>
+            <h3 class="work__title">
+              Image Classification & AutoML vs Custom Training
+            </h3>
+            <p class="work__subtitle">Google Cloud</p>
+          </article>
+
+          <!-- Project 5 -->
+          <article class="work__card">
+            <a href="hotel-management.html" class="work__link">
+              <img
+                src="assets/img/hotel.jpg"
+                alt="Hotel Management System"
+                class="work__img"
+              />
+              <span class="work__icon">
+                <i class="ri-arrow-right-circle-line"></i>
+              </span>
+            </a>
+            <h3 class="work__title">Hotel Management System</h3>
+            <p class="work__subtitle">Website Design</p>
+          </article>
+
+          <!-- Project 6 -->
+          <article class="work__card">
+            <a href="gym-management.html" class="work__link">
+              <img
+                src="assets/img/gym.jpg"
+                alt="Gym Management System"
+                class="work__img"
+              />
+              <span class="work__icon">
+                <i class="ri-arrow-right-circle-line"></i>
+              </span>
+            </a>
+            <h3 class="work__title">Gym Management System</h3>
+            <p class="work__subtitle">UI/UX Design</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--==================== FOOTER ====================-->
+  <footer class="footer">
+    <div class="footer__container container">
+      <a href="index.html" class="footer__logo">Ketan Darekar</a>
+      <ul class="footer__links">
+        <li><a href="about.html" class="footer__link">About Me</a></li>
+        <li><a href="work.html" class="footer__link">Portfolio</a></li>
+        <li><a href="contact.html" class="footer__link">Contact Me</a></li>
+      </ul>
+      <div class="footer__social">
+        <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+          <i class="ri-facebook-circle-fill"></i>
+        </a>
+        <a href="https://github.com/Ketan5757" target="_blank" class="footer__social-link">
+          <i class="ri-github-fill"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/ketan-darekar-6ba32a1b4/"
+          target="_blank"
+          class="footer__social-link"
+        >
+          <i class="ri-linkedin-box-fill"></i>
+        </a>
+      </div>
+      <span class="footer__copy">© 2025 Made by Ketan Darekar</span>
+    </div>
+  </footer>
+
+  <!--==================== SCRIPTS ====================-->
+  <script>
+    // Toggle mobile nav
+    const navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close'),
+      navMenu = document.getElementById('nav-menu');
+
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navMenu.classList.add('active');
+      });
+    }
+    if (navClose) {
+      navClose.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    }
+  </script>
+</body>
 </html>
