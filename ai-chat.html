@@ -33,6 +33,49 @@
       --transition-fast: 0.25s ease;
     }
 
+    :root {
+  /* Customize these variables as needed */
+  --back-link-bg: var(--clr-soft);
+  --back-link-color: var(--clr-secondary);
+  --back-link-hover-bg: var(--clr-secondary);
+  --back-link-hover-color: var(--clr-light);
+  --back-link-padding: 0.25rem 0.75rem;
+  --back-link-font-size: 0.875rem;
+  --back-link-border-radius: 0.375rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;               /* Move box a bit lower */
+  color: #000 !important; 
+  justify-content: center;
+  float: right; /* position on the right */
+  margin-right: 30px;
+  font-weight: 600;
+  font-size: var(--back-link-font-size);
+  color: var(--back-link-color);
+  background-color: var(--back-link-bg);
+  padding: var(--back-link-padding);
+  border: 1px solid var(--back-link-color);
+  border-radius: var(--back-link-border-radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  transition: 
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.back-link:hover {
+  background-color: var(--back-link-hover-bg);
+  color: #000 !important;  
+  color: var(--back-link-hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: var(--font-primary); background-color: var(--clr-bg); color: var(--clr-dark); line-height: 1.6; overflow-x: hidden; }
@@ -66,6 +109,8 @@
       .nav__list { flex-direction: column; gap: 1.5rem; }
     }
 
+    
+
     /* AICHAT CONTENT */
     .image-container { text-align: center; margin-bottom: 2rem; }
     .image-container img { width: 450px; height: auto; display: block; margin: 0 auto; }
@@ -73,6 +118,13 @@
     .content p, .content ul { font-size: 1rem; line-height: 1.6; margin-bottom: 1rem; }
     .content ul { list-style: disc; padding-left: 1.25rem; }
     .view-code { text-align: center; margin-top: 1.5rem; }
+
+
+    .doc-link {
+      display: block;          /* Each link on its own line */
+      margin-bottom: 1rem;     /* Space after each link */
+    }
+
 
     /* ===================== FOOTER ===================== */
     .footer {
@@ -173,6 +225,7 @@
 
   <!-- MAIN CONTENT -->
   <main class="main" style="margin-top:4.5rem;">
+    <a href="index.html" class="back-link">⬅ Back </a>
     <section class="section" id="ai-chat">
       <div class="container">
         <div class="image-container">
@@ -215,8 +268,8 @@
           <h2>Project Documentation</h2>
           <p>Please review the documentation below:</p>
           <p style="text-align:center;">
-            <a href="assets/pdf/SmartTalk-AI PPT.pdf" target="_blank">Download Project Presentation (PPT)</a><br />
-            <a href="assets/pdf/Darekar-Ketan-RES.report-2025.pdf" target="_blank">Download Project Report</a>
+            <a href="assets/pdf/SmartTalk-AI PPT.pdf" class="doc-link" target="_blank">Download Project Presentation (PPT)</a>
+            <a href="assets/pdf/Darekar-Ketan-RES.report-2025.pdf" class="doc-link" target="_blank">Download Project Report</a>
           </p>
 
           <div class="view-code">
