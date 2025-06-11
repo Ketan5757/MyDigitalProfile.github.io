@@ -1,121 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Classification</title>
-    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
-    <link rel="shortcut icon" href="assets/img/K.webp" type="image/x-icon">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background: #4F729D;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .image-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .content h2 {
-            color: #4F729D;
-        }
-        .content p, .content ul {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        .content ul {
-            padding-left: 20px;
-        }
-        .content a {
-            display: block;
-            text-align: center;
-            font-size: 18px;
-            margin-top: 15px;
-            text-decoration: none;
-            color: #4F729D;
-            font-weight: bold;
-        }
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            background: #4F729D;
-            color: white;
-            border-radius: 0 0 10px 10px;
-        }
-        footer a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Animate.css for smooth fade-in animations -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <title>Image Classification</title>
+
+  <style>
+    :root {
+      --clr-primary: #0a3d62;
+      --clr-secondary: #22a6b3;
+      --clr-accent: #f9ca24;
+      --clr-bg: #f8f9fa;
+      --clr-light: #ffffff;
+      --clr-dark: #2f3640;
+      --clr-muted: #636e72;
+      --clr-soft: #dfe6e9;
+      --font-primary: 'Inter', sans-serif;
+      --font-secondary: 'Poppins', sans-serif;
+      --transition-fast: 0.25s ease;
+      --back-link-bg: var(--clr-soft);
+      --back-link-color: var(--clr-secondary);
+      --back-link-hover-bg: var(--clr-secondary);
+      --back-link-hover-color: var(--clr-light);
+      --back-link-padding: 0.25rem 0.75rem;
+      --back-link-font-size: 0.875rem;
+      --back-link-border-radius: 0.375rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-primary); background-color: var(--clr-bg); color: var(--clr-dark); line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .container { width: min(100% - 2rem, 1200px); margin-inline: auto; padding: 0 1rem; }
+    .section { padding: 5rem 0; }
+
+    /* HEADER & NAV */
+    .header { position: fixed; top: 0; left: 0; width: 100%; background-color: var(--clr-light); box-shadow: 0 4px 12px rgba(0,0,0,0.05); z-index: 9999; transition: background-color var(--transition-fast); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 4.5rem; }
+    .nav__logo { font-family: var(--font-secondary); font-size: 1.5rem; font-weight: 600; color: var(--clr-primary); transition: color var(--transition-fast); }
+    .nav__menu { display: flex; align-items: center; gap: 2rem; }
+    .nav__list { display: flex; gap: 2rem; align-items: center; }
+    .nav__item { position: relative; }
+    .nav__link { font-size: 0.95rem; font-weight: 500; color: var(--clr-dark); position: relative; padding: 0.25rem 0; transition: color var(--transition-fast); }
+    .nav__link::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background-color: var(--clr-primary); transition: width var(--transition-fast); border-radius: 1px; }
+    .nav__link:hover::after, .nav__link.active::after { width: 100%; }
+    .nav__link:hover { color: var(--clr-primary); }
+    .nav__link.button { background-color: var(--clr-secondary); color: var(--clr-light); padding: 0.5rem 1rem; border-radius: 0.375rem; transition: background-color var(--transition-fast), transform var(--transition-fast); }
+    .nav__link.button:hover { background-color: var(--clr-accent); transform: translateY(-2px); }
+    .nav__toggle, .nav__close { display: none; font-size: 1.5rem; }
+    .nav__toggle:hover, .nav__close:hover { color: var(--clr-secondary); }
+    @media (max-width: 768px) {
+      .nav__toggle { display: block; }
+      .nav__menu { position: fixed; top: 0; right: -100%; width: 260px; height: 100vh; background-color: var(--clr-light); flex-direction: column; padding: 2rem 1.5rem; box-shadow: -2px 0 8px rgba(0,0,0,0.1); gap: 1.5rem; transition: right var(--transition-fast); }
+      .nav__menu.active { right: 0; }
+      .nav__close { display: block; align-self: flex-end; }
+      .nav__list { flex-direction: column; gap: 1.5rem; }
+    }
+
+    .back-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;               /* Move box a bit lower */
+  color: #000 !important; 
+  justify-content: center;
+  float: right; /* position on the right */
+  margin-right: 30px;
+  font-weight: 600;
+  font-size: var(--back-link-font-size);
+  color: var(--back-link-color);
+  background-color: var(--back-link-bg);
+  padding: var(--back-link-padding);
+  border: 1px solid var(--back-link-color);
+  border-radius: var(--back-link-border-radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  transition: 
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.back-link:hover {
+  background-color: var(--back-link-hover-bg);
+  color: #000 !important;  
+  color: var(--back-link-hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+    /* PAGE CONTENT */
+    .image-container { text-align: center; margin-bottom: 2rem; }
+    .image-container img { width: 450px; height: auto; display: block; margin: 0 auto; border-radius: 10px; }
+    .content h2 { color: var(--clr-secondary); margin-top: 1.5rem; }
+    .content p, .content ul { font-size: 1rem; line-height: 1.6; margin-bottom: 1rem; }
+    .content ul { list-style: disc; padding-left: 1.25rem; }
+    .doc-link { display: block; margin-bottom: 1rem; }
+    .view-code { text-align: center; margin-top: 1.5rem; font-size: 1rem; }
+
+    /* FOOTER */
+    .footer { background-color: var(--clr-dark); color: var(--clr-light); padding: 3rem 0; }
+    .footer__container { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    .footer__logo { font-family: var(--font-secondary); font-size: 1.5rem; font-weight: 600; color: var(--clr-light); }
+    .footer__links { display: flex; gap: 1.5rem; }
+    .footer__link { font-size: 1rem; color: var(--clr-light); position: relative; transition: color var(--transition-fast); }
+    .footer__link::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 0; height: 2px; background-color: var(--clr-secondary); transition: width var(--transition-fast); border-radius: 1px; }
+    .footer__link:hover { color: var(--clr-secondary); }
+    .footer__link:hover::after { width: 100%; }
+    .footer__social { display: flex; gap: 1rem; }
+    .footer__social-link { font-size: 1.5rem; color: var(--clr-light); transition: transform var(--transition-fast), color var(--transition-fast); }
+    .footer__social-link:hover { transform: scale(1.1); color: var(--clr-secondary); }
+    .footer__copy { font-size: 0.9rem; color: var(--clr-muted); }
+  </style>
 </head>
 <body>
-    <header>Image Classification using AutoML</header>
-    <div class="container">
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Ketan Darekar</a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Open menu"><i class="ri-menu-line"></i></button>
+      <div class="nav__menu" id="nav-menu">
+        <button class="nav__close" id="nav-close" aria-label="Close menu"><i class="ri-close-line"></i></button>
+        <ul class="nav__list">
+          <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="about.html" class="nav__link">About Me</a></li>
+          <li class="nav__item"><a href="work.html" class="nav__link active">Portfolio</a></li>
+          <li class="nav__item"><a href="contact.html" class="nav__link button">Contact Me</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main" style="margin-top:4.5rem;">
+    <a href="work.html" class="back-link">⬅ Back</a>
+    <section class="section" id="image-classification">
+      <div class="container">
         <div class="image-container">
-            <img src="assets/img/catdog.jpeg" alt="Image Classification" style="max-width: 50%; height: auto; border-radius: 10px;">
+          <img src="assets/img/catdog.jpeg" alt="Image Classification" />
         </div>
         <div class="content">
-            <h2>Project Overview</h2>
-            <p>
-                This project utilizes deep learning models trained with Google AutoML to classify images of cats and dogs.
-                The system leverages convolutional neural networks (CNNs) to achieve high accuracy in image recognition.
-            </p>
-            
-            <h2>Key Features</h2>
-            <ul>
-                <li>Automated image classification using deep learning</li>
-                <li>High-accuracy model trained with Google AutoML</li>
-                <li>Supports multiple image categories</li>
-                <li>Optimized for real-time predictions</li>
-                <li>User-friendly interface for image uploads</li>
-            </ul>
+          <h2>Project Overview</h2>
+          <p>This project utilizes deep learning models trained with Google AutoML to classify images of cats and dogs. The system leverages convolutional neural networks (CNNs) to achieve high accuracy in image recognition.</p>
 
-            <h2>Technologies Used</h2>
-            <ul>
-                <li><strong>Machine Learning:</strong> Google AutoML, TensorFlow</li>
-                <li><strong>Frontend:</strong> React.js, Tailwind CSS</li>
-                <li><strong>Backend:</strong> Node.js, Express.js</li>
-                <li><strong>Database:</strong> Firebase</li>
-                <li><strong>Cloud Services:</strong> Google Cloud Platform (GCP)</li>
-            </ul>
-            <h2>Project Documentation</h2>
-            <p>
-              For a detailed understanding of the project implementation and outcomes, please review the documentation provided below:
-            </p>
-            <p style="text-align: center; font-size: 18px; margin-top: 15px;">
-              <a href="assets/pdf/Advanced Computer Sciences (2).pptx" target="_blank">Download Project Presentation (PPT)</a>
-              <a href="assets/pdf/Advanced_Computer_Science (1).pdf" target="_blank">Download Project Report</a>
-            </p>
+          <h2>Key Features</h2>
+          <ul>
+            <li>Automated image classification using deep learning</li>
+            <li>High-accuracy model trained with Google AutoML</li>
+            <li>Supports multiple image categories</li>
+            <li>Optimized for real-time predictions</li>
+            <li>User-friendly interface for image uploads</li>
+          </ul>
+
+          <h2>Technologies Used</h2>
+          <ul>
+            <li><strong>Machine Learning:</strong> Google AutoML, TensorFlow</li>
+            <li><strong>Frontend:</strong> React.js, Tailwind CSS</li>
+            <li><strong>Backend:</strong> Node.js, Express.js</li>
+            <li><strong>Database:</strong> Firebase</li>
+            <li><strong>Cloud Services:</strong> Google Cloud Platform (GCP)</li>
+          </ul>
+
+          <h2>Project Documentation</h2>
+          <p>Please review the documentation below:</p>
+          <p style="text-align:center; margin-top:1rem;">
+            <a href="assets/pdf/Advanced Computer Sciences (2).pptx" class="doc-link" target="_blank">Download Project Presentation (PPT)</a>
+            <a href="assets/pdf/Advanced_Computer_Science (1).pdf" class="doc-link" target="_blank">Download Project Report</a>
+          </p>
+
+          <div class="view-code">
             <a href="https://github.com/Ketan5757/Custom-Training-Implementation-" target="_blank">🔗 View Source Code on GitHub</a>
+          </div>
         </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__container container">
+      <a href="index.html" class="footer__logo">Ketan Darekar</a>
+      <ul class="footer__links">
+        <li><a href="about.html" class="footer__link">About Me</a></li>
+        <li><a href="work.html" class="footer__link">Portfolio</a></li>
+        <li><a href="contact.html" class="footer__link">Contact Me</a></li>
+      </ul>
+      <div class="footer__social">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="footer__social-link" aria-label="Facebook"><i class="ri-facebook-circle-fill"></i></a>
+        <a href="https://github.com/Ketan5757" target="_blank" rel="noopener" class="footer__social-link" aria-label="GitHub"><i class="ri-github-fill"></i></a>
+        <a href="https://www.linkedin.com/in/ketan-darekar-6ba32a1b4/" target="_blank" rel="noopener" class="footer__social-link" aria-label="LinkedIn"><i class="ri-linkedin-box-fill"></i></a>
+      </div>
+      <span class="footer__copy">© 2025 Made by Ketan Darekar</span>
     </div>
-    <footer>
-        <a href="index.html">⬅ Back to Projects</a>
-    </footer>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('nav-toggle'), navClose = document.getElementById('nav-close'), navMenu = document.getElementById('nav-menu');
+    if (navToggle) navToggle.addEventListener('click', () => navMenu.classList.add('active'));
+    if (navClose) navClose.addEventListener('click', () => navMenu.classList.remove('active'));
+  </script>
+
+  <!-- Remixicon -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css" rel="stylesheet" integrity="sha512-BhL7G+5mwrnbHps+XYHeYJDF5OK4hc2qTRZ5BWmLGnSZjyjcwWfYyLvg79P5xTFjTcYfuc2+IICDcFMpQYf/vw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </body>
 </html>
