@@ -16,12 +16,13 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
 
-  <title>Ketan Darekar — UI/UX & Full-Stack Designer</title>
+  <title>Ketan Darekar - Software Engineer | Full-Stack & AI Applications</title>
+  <style src ="index.css"></style>
 
   <style>
     :root {
       /* Refined Professional Palette */
-      --clr-primary: #0a3d62;        
+      --clr-primary: #00406e;        
       --clr-secondary: #22a6b3;      
       --clr-accent: #f9ca24;         
       --clr-bg: #f8f9fa;           
@@ -121,7 +122,7 @@
       left: 0;
       width: 100%;
       background-color: var(--clr-light);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 12px rgba(149, 199, 131, 0.05);
       z-index: 9999; 
       transition: background-color var(--transition-fast);
     }
@@ -261,10 +262,10 @@
       /* Lighter two-tone gradient (light navy → pale teal) */
       background: linear-gradient(
         135deg,
-        rgba(26, 62, 102, 0.9) 0%,    /* a lighter navy-blue */
-        rgba(72, 181, 200, 0.9) 100%  /* a softer teal */
+        rgba(227, 207, 230, 0.9) 0%,    /* a lighter navy-blue */
+        rgba(5, 114, 133, 0.9) 100%  /* a softer teal */
       );
-      color: var(--clr-light);
+      color: var(--clr-dark);
     }
 
     /* Noise overlay */
@@ -288,7 +289,7 @@
       height: 650px;
       background: radial-gradient(
         circle at center,
-        rgba(249, 202, 36, 0.25) 0%, /* lighter, more translucent gold */
+        rgba(160, 21, 21, 0.764) 0%, /* lighter, more translucent gold */
         transparent 60%
       );
       border-radius: 50% 50% 45% 55%;
@@ -359,7 +360,7 @@
       height: 400px;
       object-fit: cover;
       border: 6px solid var(--clr-light);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 30px rgba(117, 5, 5, 0.15);
       transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     }
 
@@ -372,6 +373,8 @@
     .home__content {
       text-align: left;
       padding: 1rem;
+      flex-direction: column;
+      gap: 0.100rem;
     }
 
     /* Animated Headline & Underline */
@@ -380,19 +383,19 @@
       font-size: 3rem;
       font-weight: 700;
       margin-bottom: 0.25rem;
-      color: var(--clr-light);
+      color: rgba(41, 30, 66, 0.85);
       position: relative;
       display: inline-block;
     }
 
-    .home__name::after {
+    /* .home__name::after {
       content: "";
       position: absolute;
       left: 0;
       bottom: -6px;
       width: 100%;
       height: 4px;
-      background-color: var(--clr-accent);
+      background-color: var(--clr-secondary);
       opacity: 0.8;
       border-radius: 2px;
       transform-origin: left;
@@ -407,22 +410,22 @@
       100% {
         transform: scaleX(1);
       }
-    }
+    } */
 
     /* Profession & Tagline fade-in */
     .home__profession {
       font-size: 1.25rem;
       font-weight: 500;
       margin-bottom: 1rem;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(37, 44, 105, 0.85);
       opacity: 0;
     }
     .home__tagline {
       font-family: var(--font-secondary);
       font-size: 1.15rem;
       font-weight: 400;
-      color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 1.5rem;
+      color: rgba(37, 9, 47, 0.8);
+      margin-bottom: 0.2rem;
       opacity: 0;
     }
 
@@ -447,7 +450,7 @@
 
     .home__button {
       display: inline-block;
-      background-color: var(--clr-accent);
+      background-color: rgba(76, 76, 139, 0.8);
       color: var(--clr-light);
       font-weight: 500;
       padding: 0.75rem 1.75rem;
@@ -457,9 +460,10 @@
     }
 
     .home__button:hover {
-      background-color: var(--clr-secondary);
+      background-color: rgb(31, 94, 31);
       transform: translateY(-2px);
     }
+
 
     /* Hook up Animate.css fade-ins (via classes in HTML) */
     .home__profession.animate__animated {
@@ -475,7 +479,7 @@
       animation-fill-mode: both;
     }
     .home__button.animate__animated {
-      animation-delay: 2s;
+      animation-delay: 1.8s;
       animation-fill-mode: both;
     }
 
@@ -1014,10 +1018,12 @@
       font-size: 0.9rem;
       color: var(--clr-muted);
       margin-top: 1rem;
+      
     }
   </style>
 </head>
 <body>
+
   <!--==================== HEADER ====================-->
   <header class="header" id="header">
      <button class="nav__toggle" id="nav-toggle" aria-label="Open menu"><i class="ri-menu-line"></i></button>
@@ -1040,7 +1046,7 @@
             <a href="about.html" class="nav__link">About Me</a>
           </li>
           <li class="nav__item">
-            <a href="work.html" class="nav__link">Portfolio</a>
+            <a href="work.html" class="nav__link">Projects</a>
           </li>
           <li class="nav__item">
             <a href="contact.html" class="nav__link button">Contact Me</a>
@@ -1077,12 +1083,13 @@
             Ketan Darekar
           </h1>
           <p class="home__profession animate__animated animate__fadeIn">
-            Full-Stack Developer | Passionate About AI
+            <b>Software Engineer | Full-Stack & AI Applications</b>
           </p>
           <p
             class="home__tagline animate__animated animate__fadeIn animate__delay-1s"
           >
-            Experience my full-stack story—built with passion, precision, and purpose.
+           I’m a Software Engineer with hands-on experience in backend development and AI-enabled applications. 
+           I enjoy building scalable systems, clean APIs, and practical AI solutions that solve real problems.
           </p>
           <div
             class="home__social animate__animated animate__fadeIn animate__delay-2s"
