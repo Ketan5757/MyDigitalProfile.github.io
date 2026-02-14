@@ -227,35 +227,36 @@
 
     /* Responsive Nav */
     @media (max-width: 768px) {
-      .nav__toggle {
-        display: block;
-      }
-      .nav__menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 260px;
-        height: 100vh;
-        background-color: var(--clr-light);
-        flex-direction: column;
-        padding: 2rem 1.5rem;
-        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
-        gap: 1.5rem;
-        transition: right var(--transition-fast);
-        z-index: 9999;
-      }
-      .nav__menu.active {
-        right: 0;
-      }
-      .nav__close {
-        display: block;
-        align-self: flex-end;
-      }
-      .nav__list {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-    }
+    .nav__toggle {
+    display: block;
+  }
+
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 260px;
+    height: 100vh;
+    background-color: white;
+    flex-direction: column;
+    padding: 2rem;
+    transition: right 0.3s ease;
+  }
+
+  .nav__menu.active {
+    right: 0;
+  }
+
+  .nav__close {
+    display: block;
+    align-self: flex-end;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
 
     /* ===================== ABOUT SECTION ===================== */
     .about__container {
@@ -427,35 +428,44 @@
 <body>
   <!--==================== HEADER ====================-->
   <header class="header" id="header">
-    <nav class="nav container">
-      <a href="index.html" class="nav__logo">Ketan Darekar</a>
-      <!-- Nav Menu -->
-      <div class="nav__menu" id="nav-menu">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a href="index.html" class="nav__link">Home</a>
-          </li>
-          <li class="nav__item">
-            <a href="about.html" class="nav__link active">About Me</a>
-          </li>
-          <li class="nav__item">
-            <a href="work.html" class="nav__link">Projects</a>
-          </li>
-          <li class="nav__item">
-            <a href="contact.html" class="nav__link button">Contact Me</a>
-          </li>
-        </ul>
-        <!-- Close button -->
-        <div class="nav__close" id="nav-close">
-          <i class="ri-close-line"></i>
-        </div>
-      </div>
-      <!-- Toggle button -->
-      <div class="nav__toggle" id="nav-toggle">
-        <i class="ri-menu-line"></i>
-      </div>
-    </nav>
-  </header>
+  <nav class="nav container">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
+    <!-- Logo -->
+    <a href="index.html" class="nav__logo">Ketan Darekar</a>
+
+    <!-- Hamburger Button (3 lines) -->
+    <button class="nav__toggle" id="nav-toggle" aria-label="Open menu">
+      <i class="ri-menu-line"></i>
+    </button>
+
+    <!-- Navigation Menu -->
+    <div class="nav__menu" id="nav-menu">
+
+      <!-- Close Button -->
+      <button class="nav__close" id="nav-close" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="index.html" class="nav__link active">Home</a>
+        </li>
+        <li class="nav__item">
+          <a href="about.html" class="nav__link">About Me</a>
+        </li>
+        <li class="nav__item">
+          <a href="work.html" class="nav__link">Projects</a>
+        </li>
+        <li class="nav__item">
+          <a href="contact.html" class="nav__link button">Contact Me</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+</header>
 
   <!--==================== MAIN ====================-->
   <main class="main">
